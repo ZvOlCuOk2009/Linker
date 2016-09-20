@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--User View Controller-->
+        <scene sceneID="ChN-IZ-84H">
+            <objects>
+                <viewController storyboardIdentifier="UserStoryboard" id="8q2-KS-UEp" customClass="TSUserViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wOq-eE-uWq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jzt-Kw-XgZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9pG-qE-Y98">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="KbD-WO-ofQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" restorationIdentifier="UserStoryboard" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0UC-3i-QmW">
+                                <rect key="frame" x="142" y="265" width="37" height="86"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Jzt-Kw-XgZ" firstAttribute="top" secondItem="0UC-3i-QmW" secondAttribute="bottom" constant="217" id="5Wb-bE-JZU"/>
+                            <constraint firstItem="KbD-WO-ofQ" firstAttribute="top" secondItem="9pG-qE-Y98" secondAttribute="top" id="BxM-HC-P8Y"/>
+                            <constraint firstItem="KbD-WO-ofQ" firstAttribute="leading" secondItem="9pG-qE-Y98" secondAttribute="leading" id="EMa-cg-5mv"/>
+                            <constraint firstItem="Jzt-Kw-XgZ" firstAttribute="top" secondItem="KbD-WO-ofQ" secondAttribute="bottom" id="G5o-Ec-9t7"/>
+                            <constraint firstItem="0UC-3i-QmW" firstAttribute="top" secondItem="wOq-eE-uWq" secondAttribute="bottom" constant="245" id="LUo-pV-Ed3"/>
+                            <constraint firstItem="0UC-3i-QmW" firstAttribute="leading" secondItem="9pG-qE-Y98" secondAttribute="leading" constant="142" id="NJj-zz-pbj"/>
+                            <constraint firstAttribute="trailing" secondItem="KbD-WO-ofQ" secondAttribute="trailing" id="ZEG-or-YrC"/>
+                            <constraint firstAttribute="trailing" secondItem="0UC-3i-QmW" secondAttribute="trailing" constant="141" id="h8a-h8-qAQ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="user_tab" id="vDg-ls-OZ6">
+                        <inset key="imageInsets" minX="1" minY="9" maxX="3" maxY="-4"/>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kLP-di-A5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1266" y="52"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="750" height="1334"/>
+        <image name="user_tab" width="44" height="44"/>
+    </resources>
+</document>

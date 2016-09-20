@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Map Kit View Controller-->
+        <scene sceneID="06r-E5-rxU">
+            <objects>
+                <viewController storyboardIdentifier="MapKitStoryboard" id="jCD-oS-pp5" customClass="TSMapKitViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qEG-bC-w2S"/>
+                        <viewControllerLayoutGuide type="bottom" id="YVo-UR-Rpt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sYK-f9-5jt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1ce-8g-6oI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YVo-UR-Rpt" firstAttribute="top" secondItem="1ce-8g-6oI" secondAttribute="bottom" id="GzJ-vm-TkV"/>
+                            <constraint firstAttribute="trailing" secondItem="1ce-8g-6oI" secondAttribute="trailing" id="PAL-cw-0jY"/>
+                            <constraint firstItem="1ce-8g-6oI" firstAttribute="leading" secondItem="sYK-f9-5jt" secondAttribute="leading" id="RAJ-8I-f7M"/>
+                            <constraint firstItem="1ce-8g-6oI" firstAttribute="top" secondItem="sYK-f9-5jt" secondAttribute="top" id="cDT-Ib-Kk1"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="pin_tab" id="neJ-mC-dUJ">
+                        <inset key="imageInsets" minX="1" minY="9" maxX="3" maxY="-4"/>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KuD-yB-N11" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1497" y="364"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pin_tab" width="44" height="44"/>
+    </resources>
+</document>
