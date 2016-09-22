@@ -32,6 +32,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    NSLog(@"token %@", [[FBSDKAccessToken currentAccessToken] tokenString]);
+    
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
     self.storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
@@ -80,6 +82,7 @@
                                    sourceApplication:sourceApplication
                                           annotation:annotation];
     } else {
+        
         return [[FBSDKApplicationDelegate sharedInstance] application:application
                                                               openURL:url
                                                     sourceApplication:sourceApplication

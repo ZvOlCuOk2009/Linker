@@ -56,6 +56,14 @@
     self.senderDisplayName = self.user.displayName;
     self.usersTypingQuery = [self.ref queryOrderedByKey];
     
+    if ([self.senderId isEqual:nil]) {
+        self.senderId = @"";
+    }
+    
+    if ([self.senderDisplayName isEqual:nil]) {
+        self.senderDisplayName = @"";
+    }
+    
     CGSize rect = CGSizeMake(35, 35);
     
     self.collectionView.collectionViewLayout.outgoingAvatarViewSize = rect;

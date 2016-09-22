@@ -8,6 +8,8 @@
 
 #import "TSFBManager.h"
 
+#import <GoogleSignIn/GoogleSignIn.h>
+
 @import FirebaseAuth;
 
 
@@ -90,7 +92,7 @@
     [[[FBSDKLoginManager alloc] init] logOut];
     [FBSDKAccessToken setCurrentAccessToken:nil];
     [FBSDKProfile setCurrentProfile:nil];
-//    [[GIDSignIn sharedInstance] signOut];
+    [[GIDSignIn sharedInstance] signOut];
     NSError *error;
     [[FIRAuth auth] signOut:&error];
     if (!error) {

@@ -40,7 +40,9 @@
     
     
 //    NSError *error;
-//    [[FIRAuth auth] signOut:&error] ;
+//    [[FIRAuth auth] signOut:&error];
+    
+    NSLog(@"token %@", [[FBSDKAccessToken currentAccessToken] tokenString]);
     
     self.loginButton = [[FBSDKLoginButton alloc] init];
     self.loginButton.hidden = YES;
@@ -78,6 +80,9 @@
               error:(NSError *)error
 {
     
+    NSLog(@"token %@", [[FBSDKAccessToken currentAccessToken] tokenString]);
+
+    
     if ([FBSDKAccessToken currentAccessToken]) {
         
         NSDictionary * parameters = @{@"fields": @"id, name, link, first_name, last_name, picture.type(large), email, birthday, bio, location, friends, hometown, friendlists"};
@@ -87,7 +92,6 @@
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error)
              {
-//                 [self openTheTabBarController];
                  NSLog(@"resultis:%@", result);
              } else {
                  NSLog(@"Error %@", error);
@@ -107,7 +111,6 @@
                                         NSLog(@"Cancelled");
                                     } else {
                                         NSLog(@"Logged in");
-//                                        [self openTheTabBarController];
                                     }
                                 }];
         

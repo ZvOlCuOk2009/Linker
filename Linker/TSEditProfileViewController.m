@@ -21,21 +21,17 @@
 @property (strong, nonatomic) TSFireUser *fireUser;
 @property (strong, nonatomic) NSMutableArray *friends;
 
-@property (weak, nonatomic) IBOutlet UITextField *professionTextField;
-@property (weak, nonatomic) IBOutlet UITextField *commingFromTextField;
-@property (weak, nonatomic) IBOutlet UITextField *coingToTextField;
-@property (weak, nonatomic) IBOutlet UITextField *currentArreaTextField;
-@property (weak, nonatomic) IBOutlet UITextField *launguageTextField;
-@property (weak, nonatomic) IBOutlet UITextField *ageTextField;
-@property (weak, nonatomic) IBOutlet UITextField *missionTextField;
-@property (weak, nonatomic) IBOutlet UITextField *aboutTextField;
-@property (weak, nonatomic) IBOutlet UITextField *backgroundTextField;
-@property (weak, nonatomic) IBOutlet UITextField *interestTextField;
+@property (weak, nonatomic) IBOutlet UITextField *professionTextFd;
+@property (weak, nonatomic) IBOutlet UITextField *commingFromTextFd;
+@property (weak, nonatomic) IBOutlet UITextField *coingToTextFd;
+@property (weak, nonatomic) IBOutlet UITextField *currentArreaTextFd;
+@property (weak, nonatomic) IBOutlet UITextField *launguageTextFd;
+@property (weak, nonatomic) IBOutlet UITextField *ageTextFd;
+@property (weak, nonatomic) IBOutlet UITextField *missionTextFd;
+@property (weak, nonatomic) IBOutlet UITextField *aboutTextFd;
+@property (weak, nonatomic) IBOutlet UITextField *backgroundTextFd;
+@property (weak, nonatomic) IBOutlet UITextField *interestTextFd;
 
-@property (strong, nonatomic) IBOutletCollection (NSLayoutConstraint) NSArray *xValueCollection;
-
-
-- (IBAction)actionUpdate:(id)sender;
 
 @end
 
@@ -48,16 +44,14 @@
     self.ref = [[FIRDatabase database] reference];
     self.user = [FIRAuth auth].currentUser;
     
-    
-    [self layout];
 }
 
-- (IBAction)actionBackPressed:(id)sender
+- (IBAction)actBackPressed:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)actionUpdate:(id)sender
+- (IBAction)actionUpdt:(id)sender
 {
     
     [self saveDataToDataBase];
@@ -75,7 +69,6 @@
         [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
             
             self.fireUser = [TSFireUser initWithSnapshot:snapshot];
-            self.friends = [TSRetriveFriendsFBDatabase retriveFriendsDatabase:snapshot];
             
             NSDictionary *userData = nil;
             
@@ -93,110 +86,110 @@
             
             
             
-            if ([self.professionTextField.text isEqualToString:@""]) {
+            if ([self.professionTextFd.text isEqualToString:@""]) {
                 
                 profession = self.fireUser.profession;
                 
             } else {
                 
-                profession = self.professionTextField.text;
+                profession = self.professionTextFd.text;
             }
             
             
             
-            if ([self.commingFromTextField.text isEqualToString:@""]) {
+            if ([self.commingFromTextFd.text isEqualToString:@""]) {
                 
                 commingFrom = self.fireUser.commingFrom;
                 
             } else {
-                commingFrom = self.commingFromTextField.text;
+                commingFrom = self.commingFromTextFd.text;
             }
             
             
             
-            if ([self.coingToTextField.text isEqualToString:@""]) {
+            if ([self.coingToTextFd.text isEqualToString:@""]) {
                 
                 coingTo = self.fireUser.coingTo;
                 
             } else {
                 
-                coingTo = self.coingToTextField.text;
+                coingTo = self.coingToTextFd.text;
             }
             
             
             
-            if ([self.currentArreaTextField.text isEqualToString:@""]) {
+            if ([self.currentArreaTextFd.text isEqualToString:@""]) {
                 
                 city = self.fireUser.currentArrea;
                 
             } else {
                 
-                city = self.currentArreaTextField.text;
+                city = self.currentArreaTextFd.text;
             }
             
             
             
-            if ([self.launguageTextField.text isEqualToString:@""]) {
+            if ([self.launguageTextFd.text isEqualToString:@""]) {
                 
                 launguage = self.fireUser.launguage;
                 
             } else {
                 
-                launguage = self.launguageTextField.text;
+                launguage = self.launguageTextFd.text;
             }
             
             
             
-            if ([self.ageTextField.text isEqualToString:@""]) {
+            if ([self.ageTextFd.text isEqualToString:@""]) {
                 
                 age = self.fireUser.age;
                 
             } else {
                 
-                age = self.ageTextField.text;
+                age = self.ageTextFd.text;
             }
             
             
             
-            if ([self.missionTextField.text isEqualToString:@""]) {
+            if ([self.missionTextFd.text isEqualToString:@""]) {
                 
                 mission = self.fireUser.mission;
                 
             } else {
                 
-                mission = self.missionTextField.text;
+                mission = self.missionTextFd.text;
             }
             
             
             
-            if ([self.aboutTextField.text isEqualToString:@""]) {
+            if ([self.aboutTextFd.text isEqualToString:@""]) {
                 
                 about = self.fireUser.about;
                 
             } else {
                 
-                about = self.aboutTextField.text;
+                about = self.aboutTextFd.text;
             }
             
             
             
-            if ([self.backgroundTextField.text isEqualToString:@""]) {
+            if ([self.backgroundTextFd.text isEqualToString:@""]) {
                 
                 background = self.fireUser.background;
                 
             } else {
-                background = self.backgroundTextField.text;
+                background = self.backgroundTextFd.text;
             }
             
             
             
-            if ([self.interestTextField.text isEqualToString:@""]) {
+            if ([self.interestTextFd.text isEqualToString:@""]) {
                 
                 interest = self.fireUser.interest;
                 
             } else {
                 
-                interest = self.interestTextField.text;
+                interest = self.interestTextFd.text;
             }
             
             
@@ -218,14 +211,6 @@
             
             [[[[self.ref child:@"users"] child:self.user.uid] child:@"username"] setValue:userData];
             
-            
-            for (int i = 0; i < self.friends.count; i++) {
-                
-                NSString *key = [NSString stringWithFormat:@"key%d", i];
-                NSDictionary *pair = [self.friends objectAtIndex:i];
-                NSString *IDFromYourFriendsList = [pair objectForKey:@"fireUserID"];
-                [[[[[self.ref child:@"users"] child:IDFromYourFriendsList] child:@"friends"] child:key] setValue:userData];
-            }
         }];
         
     });
@@ -239,24 +224,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
-}
-
-
-- (void)layout
-{
-    
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
-        if (IS_IPHONE_4) {
-            
-        } else if (IS_IPHONE_5) {
-            
-        } else if (IS_IPHONE_6) {
-            
-        } else if (IS_IPHONE_6_PLUS) {
-            
-        }
-    }
 }
 
 
@@ -292,6 +259,9 @@
             
         } else if (IS_IPHONE_6_PLUS) {
             
+            [UIView animateWithDuration:0.3 animations:^{
+                [self.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 736)];
+            }];
         }
     }
     

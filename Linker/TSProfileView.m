@@ -90,7 +90,7 @@ static NSDictionary *reportedContent;
     {
         if (IS_IPHONE_4) {
             
-            UINib *nib = [UINib nibWithNibName:@"TSProfileView" bundle:nil];
+            UINib *nib = [UINib nibWithNibName:@"TSProfileView4" bundle:nil];
             view = [nib instantiateWithOwner:self options:nil][0];
             view.frame = CGRectMake(8, 20, 304, 394);
             

@@ -26,6 +26,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.214635336992-u4bm6jf4u6q72r6vnjev08iurqebvl58</string>
+				<string>myBestApp</string>
 			</array>
 		</dict>
 		<dict>
