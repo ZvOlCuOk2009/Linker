@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *backgroundTextFd;
 @property (weak, nonatomic) IBOutlet UITextField *interestTextFd;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -229,43 +230,29 @@
 
 - (void)keyboardDidShow:(NSNotification *)notification
 {
-    [UIView animateWithDuration:0.3 animations:^{
-        [self.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 330)];
-    }];
+    
+    NSDictionary* info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self.view.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, self.view.frame.origin.y - kbSize.height);
+        [self.scrollView setContentOffset:scrollPoint animated:YES];
+    }
     
 }
 
 
 - (void)keyboardDidHide:(NSNotification *)notification
 {
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
-        if (IS_IPHONE_4) {
-            
-            [UIView animateWithDuration:0.3 animations:^{
-                [self.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 480)];
-            }];
-        } else if (IS_IPHONE_5) {
-            
-            [UIView animateWithDuration:0.3 animations:^{
-                [self.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 568)];
-            }];
-            
-        } else if (IS_IPHONE_6) {
-            
-            [UIView animateWithDuration:0.3 animations:^{
-                [self.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 736)];
-            }];
-            
-        } else if (IS_IPHONE_6_PLUS) {
-            
-            [UIView animateWithDuration:0.3 animations:^{
-                [self.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 736)];
-            }];
-        }
-    }
     
-    
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
     
 }
 

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Chat View Controller-->
@@ -22,12 +20,22 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTS-4j-pBX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
                                 <subviews>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkN-QT-bxQ">
+                                        <rect key="frame" x="222" y="20" width="90" height="24"/>
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.27450980390000002" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="1" maxX="1" maxY="1"/>
+                                        <state key="normal" title="Contacts" image="contact_nav_button">
+                                            <color key="titleColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionNavigationButton:" destination="O40-7e-6bS" eventType="touchUpInside" id="F2G-IB-tOx"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-Ug-JdM">
                                         <rect key="frame" x="12" y="20" width="90" height="24"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.27450980390000002" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="90" id="bpj-ps-7cm"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
@@ -50,35 +58,21 @@
                                             <action selector="actionNavigationButton:" destination="O40-7e-6bS" eventType="touchUpInside" id="Y1z-mr-Vco"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkN-QT-bxQ">
-                                        <rect key="frame" x="222" y="20" width="90" height="24"/>
-                                        <color key="backgroundColor" red="0.25490196079999999" green="0.27450980390000002" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                        <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="1" maxX="1" maxY="1"/>
-                                        <state key="normal" title="Contacts" image="contact_nav_button">
-                                            <color key="titleColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="actionNavigationButton:" destination="O40-7e-6bS" eventType="touchUpInside" id="F2G-IB-tOx"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.25490196078431371" green="0.27450980392156865" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="baseline" secondItem="ZQ2-om-v1X" secondAttribute="firstBaseline" id="0Cb-0L-dG2"/>
-                                    <constraint firstItem="ZQ2-om-v1X" firstAttribute="leading" secondItem="5ch-Ug-JdM" secondAttribute="trailing" constant="13" id="3XW-Ki-exy"/>
-                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="baseline" secondItem="PkN-QT-bxQ" secondAttribute="firstBaseline" id="7ad-58-jsW"/>
-                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="firstBaseline" secondItem="ZQ2-om-v1X" secondAttribute="baseline" id="EOu-au-m4L"/>
-                                    <constraint firstItem="PkN-QT-bxQ" firstAttribute="leading" secondItem="ZQ2-om-v1X" secondAttribute="trailing" constant="17" id="Ehs-C8-N6p"/>
-                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="width" secondItem="ZQ2-om-v1X" secondAttribute="width" id="Yzm-R3-M3o"/>
-                                    <constraint firstAttribute="bottom" secondItem="5ch-Ug-JdM" secondAttribute="bottom" constant="4" id="dFZ-7Z-nEA"/>
-                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="top" secondItem="wTS-4j-pBX" secondAttribute="top" constant="20" id="h5R-UP-Fbx"/>
-                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="baseline" secondItem="PkN-QT-bxQ" secondAttribute="baseline" id="lOg-OJ-0MH"/>
-                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="top" secondItem="ZQ2-om-v1X" secondAttribute="top" id="qjH-BN-4gq"/>
-                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="leading" secondItem="wTS-4j-pBX" secondAttribute="leading" constant="12" id="s7x-aN-16g"/>
-                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="top" secondItem="PkN-QT-bxQ" secondAttribute="top" id="v04-DN-vc9"/>
-                                    <constraint firstItem="ZQ2-om-v1X" firstAttribute="width" secondItem="PkN-QT-bxQ" secondAttribute="width" id="v1a-TQ-RYU"/>
+                                    <constraint firstItem="PkN-QT-bxQ" firstAttribute="width" secondItem="5ch-Ug-JdM" secondAttribute="width" id="14Y-73-3WT"/>
+                                    <constraint firstAttribute="bottom" secondItem="PkN-QT-bxQ" secondAttribute="bottom" constant="4" id="8QM-9T-CX4"/>
+                                    <constraint firstItem="PkN-QT-bxQ" firstAttribute="leading" secondItem="ZQ2-om-v1X" secondAttribute="trailing" constant="17" id="9l0-ZE-V1I"/>
+                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="top" secondItem="wTS-4j-pBX" secondAttribute="top" constant="20" id="GBr-wT-7wT"/>
+                                    <constraint firstItem="ZQ2-om-v1X" firstAttribute="top" secondItem="wTS-4j-pBX" secondAttribute="top" constant="20" id="Lhi-lG-epx"/>
+                                    <constraint firstItem="ZQ2-om-v1X" firstAttribute="width" secondItem="5ch-Ug-JdM" secondAttribute="width" id="Vm2-Nf-W6g"/>
+                                    <constraint firstItem="ZQ2-om-v1X" firstAttribute="leading" secondItem="5ch-Ug-JdM" secondAttribute="trailing" constant="13" id="Ybl-ov-Mri"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZQ2-om-v1X" secondAttribute="bottom" constant="4" id="ePV-gR-T0M"/>
+                                    <constraint firstAttribute="bottom" secondItem="5ch-Ug-JdM" secondAttribute="bottom" constant="4" id="eQX-cR-EL2"/>
+                                    <constraint firstItem="5ch-Ug-JdM" firstAttribute="leading" secondItem="wTS-4j-pBX" secondAttribute="leading" constant="12" id="oBC-HT-giO"/>
+                                    <constraint firstItem="PkN-QT-bxQ" firstAttribute="top" secondItem="wTS-4j-pBX" secondAttribute="top" constant="20" id="wtp-sc-5g5"/>
+                                    <constraint firstAttribute="trailing" secondItem="PkN-QT-bxQ" secondAttribute="trailing" constant="8" id="xNf-QV-4YY"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zea-dZ-emH">

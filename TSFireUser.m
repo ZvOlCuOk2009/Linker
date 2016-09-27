@@ -15,7 +15,9 @@
     
     TSFireUser *user = [[TSFireUser alloc] init];
     
-    if([[NSUserDefaults standardUserDefaults] valueForKey:@"token"])
+    NSString *token = [[NSUserDefaults standardUserDefaults] valueForKey:@"token"];
+    
+    if(token)
     {
         NSString *currentID = [FIRAuth auth].currentUser.uid;
         NSString *key = [NSString stringWithFormat:@"users/%@/username", currentID];

@@ -10,6 +10,7 @@
 #import "TSLoginViewController.h"
 #import "TSProfileView.h"
 #import "TSFireUser.h"
+#import "TSFBManager.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -33,14 +34,13 @@
     self.ref = [[FIRDatabase database] reference];
     
     
-//    NSError *error;
-//    [[FIRAuth auth] signOut:&error];
-    
     [self reloadView];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self reloadView];
     });
+    
+    [[TSFBManager sharedManager] requestUserDataFromTheServerFacebook];
     
     NSLog(@"token %@", [[FBSDKAccessToken currentAccessToken] tokenString]);
 }
@@ -107,6 +107,7 @@
         [self.view addSubview:profileView];
         
     }];
+
 }
 
 

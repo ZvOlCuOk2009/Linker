@@ -60,7 +60,7 @@
         self.senderId = @"";
     }
     
-    if ([self.senderDisplayName isEqual:nil]) {
+    if (self.senderDisplayName == nil) {
         self.senderDisplayName = @"";
     }
     

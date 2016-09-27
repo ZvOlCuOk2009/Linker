@@ -39,8 +39,8 @@
     // Do any additional setup after loading the view.
     
     
-//    NSError *error;
-//    [[FIRAuth auth] signOut:&error];
+    NSError *error;
+    [[FIRAuth auth] signOut:&error];
     
     NSLog(@"token %@", [[FBSDKAccessToken currentAccessToken] tokenString]);
     
@@ -85,9 +85,9 @@
     
     if ([FBSDKAccessToken currentAccessToken]) {
         
-        NSDictionary * parameters = @{@"fields": @"id, name, link, first_name, last_name, picture.type(large), email, birthday, bio, location, friends, hometown, friendlists"};
+        NSDictionary * parameters = @{@"fields": @"id, name"};
         
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me"
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me/friends "
                                            parameters:parameters]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error)
@@ -127,11 +127,10 @@
                                   [self openTheTabBarController];
                               }];
     
-    
-    if (![FBSDKAccessToken currentAccessToken])
-    {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
+//    if (![FBSDKAccessToken currentAccessToken])
+//    {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
     
 }
 
@@ -160,8 +159,8 @@
     
     [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         
-        self.fireUser = [TSFireUser initWithSnapshot:snapshot];
         
+        self.fireUser = [TSFireUser initWithSnapshot:snapshot];
         
         NSString *userID = user.uid;
         NSString *displayName = user.displayName;
@@ -325,14 +324,15 @@
                                    @"background":background,
                                    @"interest":interest,};
         
-        NSString *token = [userData objectForKey:@"userID"];
-        
-        [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
         
         [[[[self.ref child:@"users"] child:user.uid] child:@"username"] setValue:userData];
         
         [TSSaveFriendsFBDatabase saveFriendsDatabase:user userFriend:self.userFriends];
+        
+        NSString *token = user.uid;
+        
+        [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
     }];
     

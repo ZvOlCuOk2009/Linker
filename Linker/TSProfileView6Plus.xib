@@ -55,7 +55,7 @@
                                     <rect key="frame" x="10" y="8" width="375" height="103"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>
@@ -125,7 +125,7 @@
                                     <rect key="frame" x="15" y="166" width="16" height="16"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8Y-64-AtW">
-                                    <rect key="frame" x="175" y="15" width="218" height="26"/>
+                                    <rect key="frame" x="175" y="15" width="210" height="26"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -149,8 +149,8 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAQ-7h-5IC">
-                                    <rect key="frame" x="175" y="44" width="136" height="14"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <rect key="frame" x="175" y="44" width="172" height="14"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" red="0.32156862745098036" green="0.78431372549019607" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -232,7 +232,6 @@
                         <outlet property="avatarImageView" destination="AJB-Ac-lnF" id="jGa-cB-7jC"/>
                         <outlet property="coingToLabel" destination="FS9-a1-xNu" id="iR3-bt-PNN"/>
                         <outlet property="comingFromLabel" destination="4uD-KX-SIs" id="EX1-9e-zMx"/>
-                        <outlet property="contentTextView" destination="aQ3-1L-xOS" id="AG1-Ey-eNk"/>
                         <outlet property="countMatchLabel" destination="WpX-on-xAL" id="war-pq-34e"/>
                         <outlet property="currentArreaLabel" destination="92a-Wc-Ol9" id="nUc-eq-HpU"/>
                         <outlet property="launguageLabel" destination="UDx-G1-CpT" id="8oY-aw-FDq"/>
@@ -273,7 +272,7 @@
                 <outlet property="avatarImageView" destination="AJB-Ac-lnF" id="H0o-zO-ZnI"/>
                 <outlet property="coingToLabel" destination="FS9-a1-xNu" id="Bj8-bZ-qBj"/>
                 <outlet property="comingFromLabel" destination="4uD-KX-SIs" id="dhc-ZA-gAn"/>
-                <outlet property="contentTextView" destination="aQ3-1L-xOS" id="gbf-GO-U7J"/>
+                <outlet property="contentTextView" destination="aQ3-1L-xOS" id="afI-uV-WfO"/>
                 <outlet property="countMatchLabel" destination="WpX-on-xAL" id="IIj-YN-2Qd"/>
                 <outlet property="currentArreaLabel" destination="92a-Wc-Ol9" id="95o-dg-3Aw"/>
                 <outlet property="launguageLabel" destination="UDx-G1-CpT" id="kiN-st-ax3"/>

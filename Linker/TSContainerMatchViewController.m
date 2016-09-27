@@ -10,6 +10,7 @@
 #import "TSMatchViewController.h"
 #import "TSRetriveFriendsFBDatabase.h"
 
+
 @import Firebase;
 @import FirebaseDatabase;
 
@@ -25,6 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
     self.ref = [[FIRDatabase database] reference];
     
     [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -37,6 +39,8 @@
         [[self navigationController] setNavigationBarHidden:YES animated:YES];
         [self.navigationController pushViewController:controller animated:NO];
     }];
+   
+    
 }
 
 - (void)didReceiveMemoryWarning {

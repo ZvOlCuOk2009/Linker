@@ -26,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UIImagePickerController *picker;
 @property (strong, nonatomic) IBOutlet UIImage *image;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @end
 
 @implementation TSRegistrationViewController
@@ -65,8 +67,6 @@
     
     [self.picker dismissViewControllerAnimated:YES completion:nil];
     self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    //    self.avatarPlaceholder.imageView.image = image;
-    
     [self.avatarPlacehold setImage:self.image forState:UIControlStateNormal];
     
 }
@@ -205,20 +205,32 @@
 }
 
 
+#pragma mark - Keyboard notification
+
+
 - (void)keyboardDidShow:(NSNotification *)notification
 {
-    [UIView animateWithDuration:0.3 animations:^{
-        [self.view setFrame:CGRectMake(0, -110, self.view.bounds.size.width, 460)];
-    }];
+    NSDictionary *info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self.view.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, self.view.frame.origin.y - kbSize.height);
+        [self.scrollView setContentOffset:scrollPoint animated:YES];
+    }
     
 }
 
 
 - (void)keyboardDidHide:(NSNotification *)notification
 {
-    [UIView animateWithDuration:0.3 animations:^{
-        [self.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 460)];
-    }];
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
     
 }
 

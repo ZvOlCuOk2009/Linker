@@ -17,6 +17,7 @@
 
 + (TSFBManager *)sharedManager;
 
+- (void)requestUserDataFromTheServerFacebook;
 - (void)requestUserFriendsTheServerFacebook:(void(^)(NSArray *friends)) success;
 - (FBSDKProfilePictureView *)requestUserImageFromTheServerFacebook:(UIImageView *)currentImageView ID:(NSString *)ID;
 - (void)inviteUserFriendsTheServerFacebook:(UIViewController *)controller;

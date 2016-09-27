@@ -120,10 +120,32 @@
                                               NSString *email = user.email;
                                               NSString *imageURL = user.photoURL.absoluteString;
                                               
+                                              NSString *profession = @"";
+                                              NSString *commingFrom = @"";
+                                              NSString *coingTo = @"";
+                                              NSString *city = @"";
+                                              NSString *launguage = @"";
+                                              NSString *age = @"";
+                                              NSString *mission = @"";
+                                              NSString *about = @"";
+                                              NSString *background = @"";
+                                              NSString *interest = @"";
+
+                                              
                                               NSDictionary *userData = @{@"userID":token,
                                                                          @"displayName":name,
                                                                          @"email":email,
-                                                                         @"photoURL":imageURL};
+                                                                         @"photoURL":imageURL,
+                                                                         @"profession":profession,
+                                                                         @"commingFrom":commingFrom,
+                                                                         @"coingTo":coingTo,
+                                                                         @"city":city,
+                                                                         @"launguage":launguage,
+                                                                         @"age":age,
+                                                                         @"mission":mission,
+                                                                         @"about":about,
+                                                                         @"background":background,
+                                                                         @"interest":interest};
                                               
                                               [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
                                               [[NSUserDefaults standardUserDefaults] synchronize];
