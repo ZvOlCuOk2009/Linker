@@ -14,6 +14,7 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <AddressBook/AddressBook.h>
 
 @import Firebase;
 @import FirebaseDatabase;
@@ -39,8 +40,6 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self reloadView];
     });
-    
-    [[TSFBManager sharedManager] requestUserDataFromTheServerFacebook];
     
     NSLog(@"token %@", [[FBSDKAccessToken currentAccessToken] tokenString]);
 }
@@ -108,6 +107,95 @@
         
     }];
 
+}
+
+
+- (void)phoneNumber
+{
+    
+    self.navigationController.navigationBarHidden = true;
+    ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
+    
+    if (status == kABAuthorizationStatusDenied || status == kABAuthorizationStatusRestricted) {
+        
+        [[[UIAlertView alloc] initWithTitle:nil message:@"This app requires access to your contacts to function properly. Please visit to the \"Privacy\" section in the iPhone Settings app." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        return;
+    }
+    
+    CFErrorRef error = NULL;
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, &error);
+    
+    if (!addressBook) {
+        NSLog(@"ABAddressBookCreateWithOptions error: %@", CFBridgingRelease(error));
+        return;
+    }
+    
+    ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+        if (error) {
+            NSLog(@"ABAddressBookRequestAccessWithCompletion error: %@", CFBridgingRelease(error));
+        }
+        
+        if (granted) {
+            
+            [self listPeopleInAddressBook:addressBook];
+        } else {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [[[UIAlertView alloc] initWithTitle:nil message:@"This app requires access to your contacts to function properly. Please visit to the \"Privacy\" section in the iPhone Settings app." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            });
+        }
+        CFRelease(addressBook);
+    });
+    
+}
+
+
+- (NSArray *)listPeopleInAddressBook:(ABAddressBookRef)addressBook
+
+{
+    
+    NSArray *allPeople = CFBridgingRelease(ABAddressBookCopyArrayOfAllPeople(addressBook));
+    
+    NSMutableArray *contacts = [NSMutableArray array];
+    NSInteger numberOfPeople = [allPeople count];
+    
+    for (NSInteger i = 0; i < numberOfPeople; i++) {
+        ABRecordRef person = (__bridge ABRecordRef)allPeople[i];
+        
+        NSString *firstName = CFBridgingRelease(ABRecordCopyValue(person, kABPersonFirstNameProperty));
+        NSString *lastName  = CFBridgingRelease(ABRecordCopyValue(person, kABPersonLastNameProperty));
+        
+        ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+        NSString *phoneNumber = CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneNumbers, 0));
+        
+        [contacts addObject:[NSString stringWithFormat:@"%@ %@ %@", firstName, lastName, phoneNumber]];
+    }
+    return contacts;
+    
+}
+
+
+- (NSString *)retriveNumberPhoneContacts:(NSString *)contact
+
+{
+    CFErrorRef error = NULL;
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, &error);
+    
+    NSArray *contacts = [self listPeopleInAddressBook:addressBook];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@", contact];
+    NSArray *searchArray = [contacts filteredArrayUsingPredicate:predicate];
+    NSString *serchContact = nil;
+    
+    if ([searchArray count] > 0) {
+        serchContact = [searchArray objectAtIndex:0];
+    } else {
+        serchContact = nil;
+    }
+    
+    return serchContact;
+    
 }
 
 

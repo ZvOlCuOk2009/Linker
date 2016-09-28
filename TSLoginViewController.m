@@ -47,8 +47,8 @@
     self.loginButton = [[FBSDKLoginButton alloc] init];
     self.loginButton.hidden = YES;
     [self.view addSubview:self.loginButton];
-
-    _loginButton.delegate = self;
+    self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    self.loginButton.delegate = self;
     
     
     [GIDSignIn sharedInstance].uiDelegate = self;
@@ -69,9 +69,9 @@
     [super viewWillAppear:animated];
     
     UIColor *color = [UIColor blackColor];
-    self.userNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"  Username" attributes:@{NSForegroundColorAttributeName: color}];
+    self.userNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"  Username" attributes:@{NSForegroundColorAttributeName:color}];
     
-    self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"  Password" attributes:@{NSForegroundColorAttributeName: color}];
+    self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"  Password" attributes:@{NSForegroundColorAttributeName:color}];
 }
 
 
@@ -85,10 +85,9 @@
     
     if ([FBSDKAccessToken currentAccessToken]) {
         
-        NSDictionary * parameters = @{@"fields": @"id, name"};
         
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me/friends "
-                                           parameters:parameters]
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me/friends" // all friends "me/taggable_friends"
+                                           parameters:nil]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error)
              {

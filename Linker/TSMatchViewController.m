@@ -134,6 +134,8 @@ static NSInteger counter = 0;
                 self.profileView.avatarImageView.image = convertImage;
             }
             
+            self.profileView.avatarImageView.layer.cornerRadius = self.profileView.avatarImageView.frame.size.width / 2;
+            self.profileView.avatarImageView.layer.masksToBounds = YES;
             
             ++counter;
             
@@ -143,32 +145,22 @@ static NSInteger counter = 0;
     
     
         } else {
-            
-            NSDictionary *cont = nil;
-            
-            self.profileView = [TSProfileView profileView:cont];
-
+    
+            if  (!self.friends.count)
+            {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Here you will see your friends have installed ""Triper""..."
+                                                                                         message:@""
+                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *action  = [UIAlertAction actionWithTitle:@"Ok"
+                                                                  style:UIAlertActionStyleCancel
+                                                                handler:^(UIAlertAction * _Nonnull action) { }];
+                [alertController addAction:action];
+                [self presentViewController:alertController animated:YES completion:nil];
+    
+                return nil;
+            }
+    
         }
-    
-    
-    
-    //    else {
-    //
-    //        if  (!self.friends.count)
-    //        {
-    //            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Here you will see your friends have installed ""Triper""..."
-    //                                                                                     message:@""
-    //                                                                              preferredStyle:UIAlertControllerStyleAlert];
-    //            UIAlertAction *action  = [UIAlertAction actionWithTitle:@"Ok"
-    //                                                              style:UIAlertActionStyleCancel
-    //                                                            handler:^(UIAlertAction * _Nonnull action) { }];
-    //            [alertController addAction:action];
-    //            [self presentViewController:alertController animated:YES completion:nil];
-    //
-    //            return nil;
-    //        }
-    //
-    //    }
     
     return self.profileView;
     

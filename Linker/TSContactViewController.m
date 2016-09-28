@@ -14,6 +14,9 @@
 #import "TSCellView.h"
 #import "TSPrefixHeader.pch"
 #import "TSParsingManager.h"
+#import "TSUserViewController.h"
+#import "TSParsingUserName.h"
+#import "TSSearch.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
@@ -31,6 +34,7 @@
 @property (strong, nonatomic) TSCellView *cell;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) FIRUser *user;
+@property (assign, nonatomic) BOOL isOpen;
 
 @end
 
@@ -105,6 +109,115 @@
 }
 
 
+#pragma mark - Actions
+
+
+- (IBAction)actPhoneButton:(UIButton *)sender
+{
+    
+    NSIndexPath *indexPath = [self determineTheAffiliationSectionOfTheCell:sender];
+    
+    NSInteger curruntUserIndex = indexPath.section;
+    
+    NSArray *nameContacts = [TSParsingUserName parsingOfTheUserName:self.friends];
+    NSString *currentUser = [nameContacts objectAtIndex:curruntUserIndex];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"UserStoryboard" bundle:[NSBundle mainBundle]];
+    
+    TSUserViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"UserStoryboard"];
+    NSString *contact = [controller retriveNumberPhoneContacts:currentUser];
+    
+    NSCharacterSet *nonDigitCharacterSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    NSString *number = [[contact componentsSeparatedByCharactersInSet:nonDigitCharacterSet] componentsJoinedByString:@""];
+    
+    if (number) {
+        
+        NSString *numberPrefix = [NSString stringWithFormat:@"tel:%@", number];
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:numberPrefix]];
+        
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"The selected user does not have a phone number in the phone book"
+                                                                                 message:nil
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * _Nonnull action) {
+                                                           
+                                                           [self secondAlert];
+                                                       }];
+        
+        [alertController addAction:action];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+    
+}
+
+
+- (void)secondAlert
+{
+    
+    UIAlertController *secondAlertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"To call the contact numbers of applications, it is necessary that the names of friends and contacts in the address book were the same!"]
+                                                                                   message:@"Please change the contact names in the phone book, in order to be able to make phone calls from the application Triper..."
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *secondAction = [UIAlertAction actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                         }];
+    
+    [secondAlertController addAction:secondAction];
+    
+    [self presentViewController:secondAlertController animated:YES completion:nil];
+    
+}
+
+
+- (IBAction)actChatButton:(UIButton *)sender
+{
+    
+    NSIndexPath *indexPath = [self determineTheAffiliationSectionOfTheCell:sender];
+    
+    NSString *ID = [self.friendsIDs objectAtIndex:indexPath.section];
+    
+    NSLog(@"ID %@", ID);
+    
+    if (![ID isEqualToString:@""]) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"noticeOnTheMethodCall" object:ID];
+    }
+    
+    NSLog(@"section ID %ld", indexPath.section);
+    
+}
+
+
+- (IBAction)actSkypeButton:(UIButton *)sender
+{
+    
+    BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"skype:"]];
+    if(installed) {
+        NSString* urlString = [NSString stringWithFormat:@"skype:?call"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://appsto.re/ru/Uobls.i"]];
+    }
+    
+}
+
+
+- (NSIndexPath *)determineTheAffiliationSectionOfTheCell:(UIButton *)button
+{
+    
+    CGPoint buttonPosition = [button convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    return indexPath;
+    
+}
+
+
 #pragma mark - UITableViewDataSourece
 
 
@@ -164,7 +277,7 @@
     NSArray *dataIDFriend = [currentSection objectForKey:@"id"];
     NSString *idFriend = [dataIDFriend objectAtIndex:0];
     
-//    self.isOpen = [[currentSection objectForKey:@"isOpen"] boolValue];
+    self.isOpen = [[currentSection objectForKey:@"isOpen"] boolValue];
     
     self.cell = [TSCellView cellView];
     self.cell.nameLabel.text = nameFriend;
@@ -176,6 +289,9 @@
     avatar.layer.cornerRadius = avatar.frame.size.width / 2;
     avatar.clipsToBounds = YES;
     [self.cell addSubview:avatar];
+    
+    self.cell.avatarImageView.layer.cornerRadius = avatar.frame.size.width / 2;
+    self.cell.avatarImageView.clipsToBounds = YES;
     
     [self.imageFriends addObject:idFriend];
     
@@ -284,6 +400,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+#pragma mark - UISearchBarDelegate
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText;
+{
+    
+    if ([searchText isEqualToString:@""]) {
+        
+        self.friends = [NSMutableArray arrayWithArray:self.arrayFriends];
+    } else {
+        self.friends = [TSSearch calculationSearchArray:self.friends text:searchText];
+    }
+    [self.tableView reloadData];
+    
 }
 
 

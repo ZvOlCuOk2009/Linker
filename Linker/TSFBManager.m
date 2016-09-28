@@ -50,25 +50,6 @@
 }
 
 
-- (void)requestUserDataFromTheServerFacebook
-{
-    
-    NSDictionary * parameters = @{@"fields": @"id, name, link, first_name, last_name, picture.type(large), email, birthday, bio, location, friends, hometown, friendlists"};
-    
-    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me/friends" // all friends "me/taggable_friends"
-                                       parameters:parameters]
-     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-         if (!error)
-         {
-             NSLog(@"resultis User Data = %@", result);
-         } else {
-             NSLog(@"Error %@", error);
-         }
-     }];
-    
-}
-
-
 #pragma mark - FBSDKProfilePictureView
 
 
