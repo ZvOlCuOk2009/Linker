@@ -12,6 +12,7 @@
 #import "TSFBManager.h"
 #import "TSParsingManager.h"
 #import "TSSaveFriendsFBDatabase.h"
+#import "TSPrefixHeader.pch"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -29,6 +30,18 @@
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) TSFireUser *fireUser;
 @property (strong, nonatomic) NSMutableArray *userFriends;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightImageViewUserConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightImageViewPasswordConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightButtonSingInConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLogoConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoTopConstraint2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *forgotTopConstraint;
+@property (strong, nonatomic) IBOutlet UIView *forgotTopConstraint2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *checkboxTopConstraint;
+
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
 @end
 
@@ -55,6 +68,42 @@
     [[GIDSignIn sharedInstance] signInSilently];
     
     self.ref = [[FIRDatabase database] reference];
+    
+    self.signInButton.layer.cornerRadius = 3;
+    self.signInButton.layer.masksToBounds = YES;
+    
+    self.signUpButton.layer.cornerRadius = 2;
+    self.signUpButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.signUpButton.layer.borderWidth = 1;
+
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        if (IS_IPHONE_4) {
+            
+            
+            
+        } else if (IS_IPHONE_5) {
+            
+            self.heightImageViewUserConstraint.constant = 40;
+            self.heightImageViewPasswordConstraint.constant = 40;
+            self.heightButtonSingInConstraint.constant = 40;
+            self.bottomLogoConstraint.constant = 20;
+            self.logoTopConstraint.constant = 20;
+            self.logoTopConstraint2.constant = 20;
+            self.forgotTopConstraint.constant = 7;
+            self.checkboxTopConstraint.constant = 7;
+            
+        } else if (IS_IPHONE_6) {
+            
+            self.heightImageViewUserConstraint.constant = 50;
+            self.heightImageViewPasswordConstraint.constant = 50;
+            self.heightButtonSingInConstraint.constant = 50;
+            
+        } else if (IS_IPHONE_6_PLUS) {
+            
+            
+        }
+    }
     
 }
 

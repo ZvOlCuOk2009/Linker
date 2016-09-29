@@ -10,6 +10,7 @@
 #import "TSFireUser.h"
 #import "TSFBManager.h"
 #import "TSLoginViewController.h"
+#import "TSPrefixHeader.pch"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
@@ -23,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *outButton;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (weak, nonatomic) IBOutlet UIButton *inviteButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightInviteButtonConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightAvatarConstraint;
 
 @end
 
@@ -35,7 +39,32 @@
     
     self.ref = [[FIRDatabase database] reference];
     
+    self.inviteButton.layer.cornerRadius = 3;
+    self.inviteButton.layer.masksToBounds = YES;
+    
     [self addAvatar];
+    
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        if (IS_IPHONE_4) {
+            
+            
+            
+        } else if (IS_IPHONE_5) {
+            
+            self.heightInviteButtonConstraint.constant = 37;
+            self.heightAvatarConstraint.constant = 180;
+            
+        } else if (IS_IPHONE_6) {
+            
+            self.heightInviteButtonConstraint.constant = 47;
+            
+        } else if (IS_IPHONE_6_PLUS) {
+            
+            self.heightInviteButtonConstraint.constant = 50;
+        }
+    }
     
 }
 

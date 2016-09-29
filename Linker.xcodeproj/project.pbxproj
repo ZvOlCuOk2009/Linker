@@ -534,7 +534,7 @@
 				TargetAttributes = {
 					FDEE774A1D89E0D7000FF69A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 5D7GRV784H;
+						DevelopmentTeam = Y862N73SQF;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -767,6 +767,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -812,6 +813,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -838,7 +840,7 @@
 				CODE_SIGN_ENTITLEMENTS = Linker/Linker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 5D7GRV784H;
+				DEVELOPMENT_TEAM = Y862N73SQF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -850,6 +852,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Tsvigun-Sasha.Linker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -861,7 +864,7 @@
 				CODE_SIGN_ENTITLEMENTS = Linker/Linker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 5D7GRV784H;
+				DEVELOPMENT_TEAM = Y862N73SQF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -873,6 +876,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Tsvigun-Sasha.Linker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

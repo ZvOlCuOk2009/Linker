@@ -32,6 +32,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    UINavigationController *navigationController = [[UINavigationController alloc] init];
+    
+    navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    [self.window addSubview:navigationController.view];
+    
     NSLog(@"token %@", [[FBSDKAccessToken currentAccessToken] tokenString]);
     
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];

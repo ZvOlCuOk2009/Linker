@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *interestTextFd;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *updateButton;
 
 @end
 
@@ -45,6 +46,9 @@
     self.ref = [[FIRDatabase database] reference];
     self.user = [FIRAuth auth].currentUser;
     
+    
+    self.updateButton.layer.cornerRadius = 3;
+    self.updateButton.layer.masksToBounds = YES;
 }
 
 - (IBAction)actBackPressed:(id)sender

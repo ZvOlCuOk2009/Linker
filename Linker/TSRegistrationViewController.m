@@ -27,6 +27,8 @@
 @property (strong, nonatomic) IBOutlet UIImage *image;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *hightRegistrationButtonConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *registrationButton;
 
 @end
 
@@ -40,6 +42,10 @@
     
     self.avatarPlacehold.layer.cornerRadius = self.avatarPlacehold.bounds.size.width / 2;
     self.avatarPlacehold.layer.masksToBounds = YES;
+    
+    self.registrationButton.layer.cornerRadius = 3;
+    self.registrationButton.layer.masksToBounds = YES;
+
 }
 
 

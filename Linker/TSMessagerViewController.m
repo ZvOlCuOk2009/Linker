@@ -139,7 +139,7 @@
 {
     
     [super viewWillAppear:animated];
-//    self.collectionView.contentInset = UIEdgeInsetsMake(40, 0, 40, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(40, 0, 40, 0);
     
 }
 
@@ -228,7 +228,7 @@
         
         cell.textView.textColor = [UIColor whiteColor];
     } else {
-        cell.textView.textColor = [UIColor blackColor];
+        cell.textView.textColor = [UIColor darkGrayColor];
     }
     
     return cell;
