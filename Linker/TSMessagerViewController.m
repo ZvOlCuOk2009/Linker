@@ -76,7 +76,7 @@
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
         if (IS_IPHONE_4) {
-            self.view.frame = CGRectMake(0, 0, 320, 568);
+            self.view.frame = CGRectMake(0, 0, 320, 480);
         } else if (IS_IPHONE_5) {
             self.view.frame = CGRectMake(0, 0, 320, 568);
         } else if (IS_IPHONE_6) {
@@ -89,9 +89,12 @@
     
     
     TSView *grayRect = [[TSView alloc] initWithView:self.view];
+    grayRect.frame = CGRectMake(0, - 36, grayRect.frame.size.width, grayRect.frame.size.height);
     [self.view addSubview:grayRect];
     
     UISearchBar *searchBar = [[TSSearchBar alloc] initWithView:self.view];
+    searchBar.frame = CGRectMake(self.view.frame.size.width / 2, - 41,
+                                 searchBar.frame.size.width, searchBar.frame.size.height);
     [self.view addSubview:searchBar];
 }
 
@@ -139,7 +142,7 @@
 {
     
     [super viewWillAppear:animated];
-    self.collectionView.contentInset = UIEdgeInsetsMake(40, 0, 40, 0);
+//    self.collectionView.contentInset = UIEdgeInsetsMake(40, 0, 40, 0);
     
 }
 

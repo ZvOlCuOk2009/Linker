@@ -53,7 +53,7 @@
                                                     <action selector="actionBackPressed:" destination="4kJ-be-sdH" eventType="touchUpInside" id="FGO-7b-UyV"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E - mail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTp-cw-CVK">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTp-cw-CVK">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="4Ug-Qq-ir6"/>
                                                 </constraints>
@@ -117,7 +117,7 @@
                                             <constraint firstItem="NwW-Xj-dEt" firstAttribute="top" secondItem="MIy-np-LhM" secondAttribute="bottom" constant="44" id="9IS-hH-s5c"/>
                                             <constraint firstItem="DPi-vf-lLa" firstAttribute="top" secondItem="c5P-OU-cv7" secondAttribute="top" id="Cjs-0u-OKm"/>
                                             <constraint firstItem="z8F-Oe-Nw9" firstAttribute="top" secondItem="c5P-OU-cv7" secondAttribute="top" constant="113" id="D3f-RY-dAB"/>
-                                            <constraint firstItem="yTp-cw-CVK" firstAttribute="leading" secondItem="SgL-kY-BMn" secondAttribute="trailing" constant="69.333333333333258" id="Eag-5O-jgh"/>
+                                            <constraint firstItem="yTp-cw-CVK" firstAttribute="leading" secondItem="SgL-kY-BMn" secondAttribute="trailing" constant="88.333333333333258" id="Eag-5O-jgh"/>
                                             <constraint firstAttribute="trailing" secondItem="4UL-AK-Gq9" secondAttribute="trailing" constant="52" id="Ees-lV-L6g"/>
                                             <constraint firstAttribute="trailing" secondItem="z8F-Oe-Nw9" secondAttribute="trailing" constant="42" id="HB1-b0-ojY"/>
                                             <constraint firstItem="DPi-vf-lLa" firstAttribute="leading" secondItem="c5P-OU-cv7" secondAttribute="leading" id="Hb1-rl-2n2"/>
@@ -408,17 +408,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tst-TR-z2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="369"/>
+            <point key="canvasLocation" x="1621" y="351"/>
         </scene>
-        <!--HomeStoryboard-->
+        <!--SettingScrollViewStoryboard-->
         <scene sceneID="ef1-np-7K3">
             <objects>
-                <viewControllerPlaceholder storyboardName="HomeStoryboard" referencedIdentifier="HomeStoryboard" id="mUj-f9-lC6" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="HomeStoryboard" referencedIdentifier="SettingScrollViewStoryboard" id="mUj-f9-lC6" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="dNM-Xn-JAs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xtd-gc-XKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1619" y="63"/>
+            <point key="canvasLocation" x="1669" y="63"/>
         </scene>
         <!--UserStoryboard-->
         <scene sceneID="ZIv-8V-CFQ">
@@ -428,7 +428,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1O-yZ-Sye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615" y="215"/>
+            <point key="canvasLocation" x="1611" y="208"/>
         </scene>
         <!--ChatStoryboard-->
         <scene sceneID="gLh-8r-2jH">
@@ -503,7 +503,7 @@
                         <inset key="imageInsets" minX="-4" minY="2" maxX="-3" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g1C-AC-52E">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="g1C-AC-52E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

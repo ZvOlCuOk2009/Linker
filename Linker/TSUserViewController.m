@@ -33,8 +33,7 @@
     // Do any additional setup after loading the view.
     
     self.ref = [[FIRDatabase database] reference];
-    
-    
+        
     [self reloadView];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -42,6 +41,10 @@
     });
     
     NSLog(@"token %@", [[FBSDKAccessToken currentAccessToken] tokenString]);
+    
+    
+//    [self phoneNumber];
+    
 }
 
 

@@ -93,8 +93,8 @@
                             <constraint firstItem="rtZ-R6-dk8" firstAttribute="top" secondItem="HSd-vd-e2X" secondAttribute="bottom" id="35K-hf-o7w"/>
                             <constraint firstAttribute="trailing" secondItem="wTS-4j-pBX" secondAttribute="trailing" id="6zj-5H-FdY"/>
                             <constraint firstItem="HSd-vd-e2X" firstAttribute="leading" secondItem="c6U-AA-iuh" secondAttribute="leading" id="8gG-EM-Cei"/>
-                            <constraint firstItem="zea-dZ-emH" firstAttribute="top" secondItem="wTS-4j-pBX" secondAttribute="bottom" id="CvL-DJ-MTC"/>
-                            <constraint firstItem="zea-dZ-emH" firstAttribute="top" secondItem="c6U-AA-iuh" secondAttribute="top" constant="48" id="Hdh-ga-Fvo"/>
+                            <constraint firstItem="zea-dZ-emH" firstAttribute="top" secondItem="wTS-4j-pBX" secondAttribute="bottom" constant="36" id="CvL-DJ-MTC"/>
+                            <constraint firstItem="zea-dZ-emH" firstAttribute="top" secondItem="c6U-AA-iuh" secondAttribute="top" constant="84" id="Hdh-ga-Fvo"/>
                             <constraint firstItem="3ji-z6-Ofe" firstAttribute="leading" secondItem="c6U-AA-iuh" secondAttribute="leading" id="IW7-3o-efI"/>
                             <constraint firstAttribute="trailing" secondItem="3ji-z6-Ofe" secondAttribute="trailing" id="NtF-ak-5oC"/>
                             <constraint firstItem="wTS-4j-pBX" firstAttribute="leading" secondItem="c6U-AA-iuh" secondAttribute="leading" id="WD5-qX-XBc"/>
@@ -104,9 +104,9 @@
                             <constraint firstItem="3ji-z6-Ofe" firstAttribute="top" secondItem="wTS-4j-pBX" secondAttribute="bottom" id="cdO-6d-ibK"/>
                             <constraint firstAttribute="trailing" secondItem="HSd-vd-e2X" secondAttribute="trailing" id="cl8-O3-2vy"/>
                             <constraint firstAttribute="trailing" secondItem="zea-dZ-emH" secondAttribute="trailing" id="i7X-EG-aDY"/>
-                            <constraint firstItem="rtZ-R6-dk8" firstAttribute="top" secondItem="zea-dZ-emH" secondAttribute="bottom" id="mqp-yr-8rb"/>
+                            <constraint firstItem="rtZ-R6-dk8" firstAttribute="top" secondItem="zea-dZ-emH" secondAttribute="bottom" constant="-2" id="mqp-yr-8rb"/>
                             <constraint firstItem="wTS-4j-pBX" firstAttribute="top" secondItem="c6U-AA-iuh" secondAttribute="top" id="oZU-cq-V3R"/>
-                            <constraint firstItem="zea-dZ-emH" firstAttribute="top" secondItem="wTS-4j-pBX" secondAttribute="bottom" id="rli-hU-YHU"/>
+                            <constraint firstItem="zea-dZ-emH" firstAttribute="top" secondItem="wTS-4j-pBX" secondAttribute="bottom" constant="36" id="rli-hU-YHU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="chat_tab" id="5wk-my-hXR">
@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GuJ-mp-aeJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1281" y="748"/>
+            <point key="canvasLocation" x="1280.8" y="747.52623688155927"/>
         </scene>
         <!--Profile Container View Controller-->
         <scene sceneID="8FX-Ow-jQm">

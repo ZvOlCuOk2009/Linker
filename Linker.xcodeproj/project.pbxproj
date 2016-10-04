@@ -58,6 +58,8 @@
 		FDEE778A1D89FA6C000FF69A /* libFBSDKCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEE77871D89FA6C000FF69A /* libFBSDKCoreKit.a */; };
 		FDEE778B1D89FA6C000FF69A /* libFBSDKLoginKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEE77881D89FA6C000FF69A /* libFBSDKLoginKit.a */; };
 		FDEE778C1D89FA6C000FF69A /* libFBSDKShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEE77891D89FA6C000FF69A /* libFBSDKShareKit.a */; };
+		FDF073BE1DA45301000464BD /* TSSettingScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF073BD1DA45301000464BD /* TSSettingScrollViewController.m */; };
+		FDF1F4421DA27B4100D7009F /* TSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF1F4411DA27B4100D7009F /* TSSettingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +169,10 @@
 		FDEE77871D89FA6C000FF69A /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKCoreKit.a; path = "../../Library/Developer/Xcode/DerivedData/Linker-alepsnhjcrkarlcqfofverxqjeji/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/libFBSDKCoreKit.a"; sourceTree = "<group>"; };
 		FDEE77881D89FA6C000FF69A /* libFBSDKLoginKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKLoginKit.a; path = "../../Library/Developer/Xcode/DerivedData/Linker-alepsnhjcrkarlcqfofverxqjeji/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/libFBSDKLoginKit.a"; sourceTree = "<group>"; };
 		FDEE77891D89FA6C000FF69A /* libFBSDKShareKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKShareKit.a; path = "../../Library/Developer/Xcode/DerivedData/Linker-alepsnhjcrkarlcqfofverxqjeji/Build/Products/Debug-iphonesimulator/FBSDKShareKit/libFBSDKShareKit.a"; sourceTree = "<group>"; };
+		FDF073BC1DA45301000464BD /* TSSettingScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSettingScrollViewController.h; sourceTree = "<group>"; };
+		FDF073BD1DA45301000464BD /* TSSettingScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingScrollViewController.m; sourceTree = "<group>"; };
+		FDF1F4401DA27B4100D7009F /* TSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSettingViewController.h; sourceTree = "<group>"; };
+		FDF1F4411DA27B4100D7009F /* TSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +339,10 @@
 				FD72A20F1D8C752C00D0BE2F /* TSHomeViewController.m */,
 				FD72A2111D8C7F0000D0BE2F /* TSMapKitViewController.h */,
 				FD72A2121D8C7F0000D0BE2F /* TSMapKitViewController.m */,
+				FDF1F4401DA27B4100D7009F /* TSSettingViewController.h */,
+				FDF1F4411DA27B4100D7009F /* TSSettingViewController.m */,
+				FDF073BC1DA45301000464BD /* TSSettingScrollViewController.h */,
+				FDF073BD1DA45301000464BD /* TSSettingScrollViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -664,6 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDEE77531D89E0E0000FF69A /* AppDelegate.m in Sources */,
+				FDF073BE1DA45301000464BD /* TSSettingScrollViewController.m in Sources */,
 				FDBBAB1F1D8AFB4300625A50 /* TSCustomImageView.m in Sources */,
 				FD72A2101D8C752C00D0BE2F /* TSHomeViewController.m in Sources */,
 				FD72A21E1D8C948700D0BE2F /* TSProfileContainerViewController.m in Sources */,
@@ -671,6 +682,7 @@
 				FD29FD0A1D8D640F00665A85 /* TSCellView.m in Sources */,
 				FDBBAB271D8B1A3D00625A50 /* TSHandler.m in Sources */,
 				FD6C0A711D9C717D00F56645 /* TSSearch.m in Sources */,
+				FDF1F4421DA27B4100D7009F /* TSSettingViewController.m in Sources */,
 				FD29FD0E1D8DD72600665A85 /* TSEditProfileViewController.m in Sources */,
 				FD90BDD21D8C299B0070A62D /* TSContainerMatchViewController.m in Sources */,
 				FDEE77831D89E1E1000FF69A /* TSLoginViewController.m in Sources */,
