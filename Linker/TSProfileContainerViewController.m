@@ -56,12 +56,8 @@
         
         profileView.nameLabel.text = fireUser.displayName;
         profileView.professionLabel.text = fireUser.profession;
-        profileView.comingFromLabel.text = fireUser.commingFrom;
         profileView.coingToLabel.text = fireUser.coingTo;
         profileView.currentArreaLabel.text = fireUser.currentArrea;
-        profileView.miniNameLabel.text = fireUser.uid;
-        profileView.launguageLabel.text = fireUser.launguage;
-        profileView.ageLabel.text = fireUser.age;
         
         NSURL *url = [NSURL URLWithString:fireUser.photoURL];
         

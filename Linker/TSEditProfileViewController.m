@@ -79,11 +79,8 @@
             
             
             NSString *profession = nil;
-            NSString *commingFrom = nil;
             NSString *coingTo = nil;
             NSString *city = nil;
-            NSString *launguage = nil;
-            NSString *age = nil;
             NSString *mission = nil;
             NSString *about = nil;
             NSString *background = nil;
@@ -98,16 +95,6 @@
             } else {
                 
                 profession = self.professionTextFd.text;
-            }
-            
-            
-            
-            if ([self.commingFromTextFd.text isEqualToString:@""]) {
-                
-                commingFrom = self.fireUser.commingFrom;
-                
-            } else {
-                commingFrom = self.commingFromTextFd.text;
             }
             
             
@@ -130,28 +117,6 @@
             } else {
                 
                 city = self.currentArreaTextFd.text;
-            }
-            
-            
-            
-            if ([self.launguageTextFd.text isEqualToString:@""]) {
-                
-                launguage = self.fireUser.launguage;
-                
-            } else {
-                
-                launguage = self.launguageTextFd.text;
-            }
-            
-            
-            
-            if ([self.ageTextFd.text isEqualToString:@""]) {
-                
-                age = self.fireUser.age;
-                
-            } else {
-                
-                age = self.ageTextFd.text;
             }
             
             
@@ -203,11 +168,8 @@
                          @"photoURL":self.fireUser.photoURL,
                          @"userID":self.fireUser.uid,
                          @"profession":profession,
-                         @"commingFrom":commingFrom,
                          @"coingTo":coingTo,
                          @"city":city,
-                         @"launguage":launguage,
-                         @"age":age,
                          @"mission":mission,
                          @"about":about,
                          @"background":background,

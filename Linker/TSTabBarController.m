@@ -28,6 +28,13 @@
         vc.title = nil;
         
     }];
+    
+    CGFloat xValue = self.tabBar.frame.size.width - (self.tabBar.frame.size.width / 5) + 20;
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(xValue, 4, 40, 40);
+    [button setBackgroundImage:[UIImage imageNamed:@"filter_tab"] forState:UIControlStateNormal];
+    [self.tabBar addSubview:button];
 }
 
 - (void)didReceiveMemoryWarning {

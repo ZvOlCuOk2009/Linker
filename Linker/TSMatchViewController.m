@@ -111,12 +111,8 @@ static NSInteger counter = 0;
             
             self.profileView.nameLabel.text = nameFriend;
             self.profileView.professionLabel.text = profession;
-            self.profileView.comingFromLabel.text = commingFrom;
             self.profileView.coingToLabel.text = coingTo;
             self.profileView.currentArreaLabel.text = currentArrea;
-            self.profileView.miniNameLabel.text = userID;
-            self.profileView.launguageLabel.text = launguage;
-            self.profileView.ageLabel.text = age;
             
             if (url && url.scheme && url.host) {
                 

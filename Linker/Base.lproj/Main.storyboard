@@ -414,9 +414,10 @@
         <scene sceneID="ef1-np-7K3">
             <objects>
                 <viewControllerPlaceholder storyboardName="HomeStoryboard" referencedIdentifier="SettingScrollViewStoryboard" id="mUj-f9-lC6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="dNM-Xn-JAs"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="m1H-sC-rLO"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xtd-gc-XKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarItem title="" image="filter_tab" id="5sO-tq-CN2"/>
             </objects>
             <point key="canvasLocation" x="1669" y="63"/>
         </scene>
@@ -454,7 +455,7 @@
                         <segue destination="mke-k6-WWy" kind="relationship" relationship="viewControllers" id="PCb-nT-R5i"/>
                         <segue destination="wJD-DH-5RM" kind="relationship" relationship="viewControllers" id="bh1-48-IRH"/>
                         <segue destination="4U3-b0-N7W" kind="relationship" relationship="viewControllers" id="XR6-Ng-k7T"/>
-                        <segue destination="mUj-f9-lC6" kind="relationship" relationship="viewControllers" id="Y2V-BB-mQi"/>
+                        <segue destination="mUj-f9-lC6" kind="relationship" relationship="viewControllers" id="dt3-av-Tud"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P91-vh-hID" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -548,6 +549,7 @@
         <image name="background" width="250" height="444"/>
         <image name="checkbox" width="24" height="24"/>
         <image name="fb_login" width="64" height="64"/>
+        <image name="filter_tab" width="44" height="44"/>
         <image name="gplus" width="64" height="64"/>
         <image name="in" width="64" height="64"/>
         <image name="logo" width="200" height="80"/>

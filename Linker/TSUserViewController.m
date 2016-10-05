@@ -78,12 +78,8 @@
         
         profileView.nameLabel.text = self.fireUser.displayName;
         profileView.professionLabel.text = self.fireUser.profession;
-        profileView.comingFromLabel.text = self.fireUser.commingFrom;
         profileView.coingToLabel.text = self.fireUser.coingTo;
         profileView.currentArreaLabel.text = self.fireUser.currentArrea;
-        profileView.miniNameLabel.text = self.fireUser.uid;
-        profileView.launguageLabel.text = self.fireUser.launguage;
-        profileView.ageLabel.text = self.fireUser.age;
         
         
         if (self.fireUser.photoURL) {

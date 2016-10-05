@@ -1,15 +1,16 @@
 //
-//  TSHomeViewController.m
+//  TSHomeView.m
 //  Linker
 //
-//  Created by Mac on 16.09.16.
+//  Created by Mac on 05.10.16.
 //  Copyright © 2016 Mac. All rights reserved.
 //
 
-#import "TSHomeViewController.h"
+#import "TSHomeView.h"
 #import "TSFireUser.h"
 #import "TSFBManager.h"
 #import "TSLoginViewController.h"
+#import "TSSettingScrollViewController.h"
 #import "TSPrefixHeader.pch"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -17,24 +18,28 @@
 @import Firebase;
 @import FirebaseDatabase;
 
-@interface TSHomeViewController ()
+@interface TSHomeView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 
-@property (weak, nonatomic) IBOutlet UIButton *outButton;
-@property (weak, nonatomic) IBOutlet UIButton *editButton;
+
+@property (strong, nonatomic) UIStoryboard *storyboard;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (strong, nonatomic) TSSettingScrollViewController *settingScrollViewController;
+
+@property (weak, nonatomic) IBOutlet UIButton *outButton;
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightInviteButtonConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightAvatarConstraint;
 
 @end
 
-@implementation TSHomeViewController
+@implementation TSHomeView
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+- (void)drawRect:(CGRect)rect
+{
     
     self.ref = [[FIRDatabase database] reference];
     
@@ -66,6 +71,16 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    self.storyboard = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:[NSBundle mainBundle]];
+    self.settingScrollViewController =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"SettingScrollViewStoryboard"];
+    
+}
+
+
 - (void)addAvatar
 {
     [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -80,7 +95,7 @@
                 FBSDKProfilePictureView *avatar = [[TSFBManager sharedManager] requestUserImageFromTheServerFacebook:self.avatarImageView ID:@"me"];
                 avatar.layer.cornerRadius = avatar.frame.size.width / 2;
                 avatar.layer.masksToBounds = YES;
-                [self.view addSubview:avatar];
+                [self addSubview:avatar];
                 
             } else {
                 self.avatarImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:
@@ -106,7 +121,7 @@
 
 - (IBAction)actionInviteFriends:(id)sender
 {
-    [[TSFBManager sharedManager] inviteUserFriendsTheServerFacebook:self];
+    [[TSFBManager sharedManager] inviteUserFriendsTheServerFacebook:self.settingScrollViewController];
 }
 
 
@@ -125,7 +140,7 @@
                                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
                                                           
                                                           TSLoginViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"TSLoginViewController"];
-                                                          [self presentViewController:controller animated:YES completion:nil];
+                                                          [self.settingScrollViewController presentViewController:controller animated:YES completion:nil];
                                                       }];
     
     UIAlertAction *actionNo = [UIAlertAction actionWithTitle:@"NO"
@@ -135,7 +150,7 @@
     [alertController addAction:actionYes];
     [alertController addAction:actionNo];
     
-    [self presentViewController:alertController animated:YES completion:nil];
+    [self.settingScrollViewController presentViewController:alertController animated:YES completion:nil];
 }
 
 
@@ -153,21 +168,5 @@
     }
     return verification;
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

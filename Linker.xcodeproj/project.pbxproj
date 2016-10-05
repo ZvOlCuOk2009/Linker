@@ -60,6 +60,8 @@
 		FDEE778C1D89FA6C000FF69A /* libFBSDKShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEE77891D89FA6C000FF69A /* libFBSDKShareKit.a */; };
 		FDF073BE1DA45301000464BD /* TSSettingScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF073BD1DA45301000464BD /* TSSettingScrollViewController.m */; };
 		FDF1F4421DA27B4100D7009F /* TSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF1F4411DA27B4100D7009F /* TSSettingViewController.m */; };
+		FDF738611DA4F16A008379EA /* TSSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF738601DA4F16A008379EA /* TSSettingsView.m */; };
+		FDF738651DA4F82E008379EA /* TSHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF738641DA4F82E008379EA /* TSHomeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,10 @@
 		FDF073BD1DA45301000464BD /* TSSettingScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingScrollViewController.m; sourceTree = "<group>"; };
 		FDF1F4401DA27B4100D7009F /* TSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSettingViewController.h; sourceTree = "<group>"; };
 		FDF1F4411DA27B4100D7009F /* TSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingViewController.m; sourceTree = "<group>"; };
+		FDF7385F1DA4F16A008379EA /* TSSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSettingsView.h; sourceTree = "<group>"; };
+		FDF738601DA4F16A008379EA /* TSSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingsView.m; sourceTree = "<group>"; };
+		FDF738631DA4F82E008379EA /* TSHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSHomeView.h; sourceTree = "<group>"; };
+		FDF738641DA4F82E008379EA /* TSHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSHomeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +326,7 @@
 				FD72A2231D8C96A600D0BE2F /* TSView.m */,
 				FDBBAB231D8B189B00625A50 /* Xibs */,
 				FDBBAB281D8B1A4500625A50 /* HandlerProfileView */,
+				FDF738621DA4F80F008379EA /* SettingsView */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -471,6 +478,17 @@
 				FDEE77751D89E103000FF69A /* Info.plist */,
 			);
 			path = LinkerUITests;
+			sourceTree = "<group>";
+		};
+		FDF738621DA4F80F008379EA /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				FDF7385F1DA4F16A008379EA /* TSSettingsView.h */,
+				FDF738601DA4F16A008379EA /* TSSettingsView.m */,
+				FDF738631DA4F82E008379EA /* TSHomeView.h */,
+				FDF738641DA4F82E008379EA /* TSHomeView.m */,
+			);
+			name = SettingsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -690,6 +708,7 @@
 				FD72A2241D8C96A600D0BE2F /* TSView.m in Sources */,
 				FD90BDD71D8C32EB0070A62D /* TSRetriveFriendsFBDatabase.m in Sources */,
 				FD72A2211D8C94DA00D0BE2F /* TSContactViewController.m in Sources */,
+				FDF738651DA4F82E008379EA /* TSHomeView.m in Sources */,
 				FD026C591D928A080060074A /* TSRegistrationViewController.m in Sources */,
 				FD72A2281D8C992100D0BE2F /* TSSearchBar.m in Sources */,
 				FD72A21B1D8C946300D0BE2F /* TSMessagerViewController.m in Sources */,
@@ -703,6 +722,7 @@
 				FD72A2131D8C7F0000D0BE2F /* TSMapKitViewController.m in Sources */,
 				FD6C0A6D1D9C6E9600F56645 /* TSParsingUserName.m in Sources */,
 				FD90BDBC1D8C00670070A62D /* TSFBManager.m in Sources */,
+				FDF738611DA4F16A008379EA /* TSSettingsView.m in Sources */,
 				FD90BDB81D8BDE3C0070A62D /* TSChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

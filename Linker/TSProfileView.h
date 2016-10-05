@@ -12,12 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *professionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *comingFromLabel;
 @property (weak, nonatomic) IBOutlet UILabel *coingToLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentArreaLabel;
-@property (weak, nonatomic) IBOutlet UILabel *launguageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *miniNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *countMatchLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *arrowImageView;
@@ -28,3 +24,11 @@
 + (instancetype)profileView:(NSDictionary *)content;
 
 @end
+
+
+/*
+comingFromLabel
+ launguageLabel
+ ageLabel
+ miniNameLabel
+*/
