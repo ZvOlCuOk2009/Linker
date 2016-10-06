@@ -274,14 +274,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyF-Xz-mkN">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="4kt-Hx-jc3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwi-P1-NDW">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="iOJ-ga-9vK"/>
@@ -327,7 +319,6 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vYG-3P-llc" secondAttribute="bottom" constant="65" id="3f4-CZ-hZj"/>
                             <constraint firstItem="b1C-IT-MSd" firstAttribute="top" secondItem="cwi-P1-NDW" secondAttribute="bottom" constant="21" id="4bt-4L-aAd"/>
                             <constraint firstItem="Jq7-ZG-aWy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="52" id="6pE-Eo-Kqf"/>
-                            <constraint firstItem="cwi-P1-NDW" firstAttribute="top" secondItem="EyF-Xz-mkN" secondAttribute="bottom" constant="2" id="8Up-IR-hwf"/>
                             <constraint firstItem="Te8-LH-iBZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="29" id="8nP-HT-TO4"/>
                             <constraint firstItem="BUG-VD-Bxj" firstAttribute="top" secondItem="jzT-MM-jl3" secondAttribute="bottom" constant="19" id="AIh-eH-h9g"/>
                             <constraint firstItem="4xr-aR-gFt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="29" id="CTt-MZ-mUa"/>
@@ -355,7 +346,7 @@
                             <constraint firstItem="BUG-VD-Bxj" firstAttribute="centerY" secondItem="nI3-bG-mJH" secondAttribute="centerY" id="ZTH-bw-5fJ"/>
                             <constraint firstItem="CAu-7J-tC4" firstAttribute="bottom" secondItem="Kbm-eK-0RC" secondAttribute="bottom" id="ZnA-T2-djL"/>
                             <constraint firstItem="v9A-tT-hRQ" firstAttribute="leading" secondItem="jzT-MM-jl3" secondAttribute="trailing" constant="18" id="brs-Ci-wWi"/>
-                            <constraint firstItem="EyF-Xz-mkN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="168" id="dBR-6x-gsj"/>
+                            <constraint firstItem="cwi-P1-NDW" firstAttribute="top" secondItem="iY8-xS-6Ic" secondAttribute="bottom" constant="40" id="e7d-Ik-8Cv"/>
                             <constraint firstAttribute="trailing" secondItem="b1C-IT-MSd" secondAttribute="trailing" constant="52" id="eCl-Nd-hkS"/>
                             <constraint firstAttribute="trailing" secondItem="4xr-aR-gFt" secondAttribute="trailing" constant="74" id="eFM-5w-URm"/>
                             <constraint firstItem="Kbm-eK-0RC" firstAttribute="top" secondItem="YsB-QU-988" secondAttribute="bottom" constant="17" id="eQz-xL-GeK"/>
@@ -364,7 +355,6 @@
                             <constraint firstItem="BUG-VD-Bxj" firstAttribute="leading" secondItem="jzT-MM-jl3" secondAttribute="leading" id="fOD-nQ-2y4"/>
                             <constraint firstItem="Te8-LH-iBZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="75" id="gXt-4D-Slq"/>
                             <constraint firstItem="YsB-QU-988" firstAttribute="top" secondItem="b1C-IT-MSd" secondAttribute="top" id="khA-go-1HI"/>
-                            <constraint firstAttribute="trailing" secondItem="EyF-Xz-mkN" secondAttribute="trailing" constant="171" id="kpi-xY-lyP"/>
                             <constraint firstItem="4xr-aR-gFt" firstAttribute="leading" secondItem="iY8-xS-6Ic" secondAttribute="trailing" constant="20" id="mgb-I2-Ae2"/>
                             <constraint firstItem="qfd-h1-DwQ" firstAttribute="bottom" secondItem="vYG-3P-llc" secondAttribute="bottom" constant="-6" id="pYh-5P-Nl1"/>
                             <constraint firstItem="nI3-bG-mJH" firstAttribute="leading" secondItem="BUG-VD-Bxj" secondAttribute="trailing" constant="18" id="rBd-ah-wj4"/>
@@ -419,13 +409,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xtd-gc-XKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarItem title="" image="filter_tab" id="5sO-tq-CN2"/>
             </objects>
-            <point key="canvasLocation" x="1669" y="63"/>
+            <point key="canvasLocation" x="1667" y="62"/>
         </scene>
         <!--UserStoryboard-->
         <scene sceneID="ZIv-8V-CFQ">
             <objects>
                 <viewControllerPlaceholder storyboardName="UserStoryboard" referencedIdentifier="UserStoryboard" id="PcR-S2-n0i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rBT-bG-wgF"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="" id="rBT-bG-wgF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1O-yZ-Sye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -451,10 +441,10 @@
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="PcR-S2-n0i" kind="relationship" relationship="viewControllers" id="rH2-j1-Jba"/>
-                        <segue destination="mke-k6-WWy" kind="relationship" relationship="viewControllers" id="PCb-nT-R5i"/>
+                        <segue destination="PcR-S2-n0i" kind="relationship" relationship="viewControllers" id="E1j-GX-0cW"/>
+                        <segue destination="mke-k6-WWy" kind="relationship" relationship="viewControllers" id="hBq-IA-Ceq"/>
                         <segue destination="wJD-DH-5RM" kind="relationship" relationship="viewControllers" id="bh1-48-IRH"/>
-                        <segue destination="4U3-b0-N7W" kind="relationship" relationship="viewControllers" id="XR6-Ng-k7T"/>
+                        <segue destination="4U3-b0-N7W" kind="relationship" relationship="viewControllers" id="ydV-lc-q5I"/>
                         <segue destination="mUj-f9-lC6" kind="relationship" relationship="viewControllers" id="dt3-av-Tud"/>
                     </connections>
                 </tabBarController>

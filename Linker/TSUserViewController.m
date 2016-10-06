@@ -78,7 +78,7 @@
         
         profileView.nameLabel.text = self.fireUser.displayName;
         profileView.professionLabel.text = self.fireUser.profession;
-        profileView.coingToLabel.text = self.fireUser.coingTo;
+        profileView.companyLabel.text = self.fireUser.company;
         profileView.currentArreaLabel.text = self.fireUser.currentArrea;
         
         

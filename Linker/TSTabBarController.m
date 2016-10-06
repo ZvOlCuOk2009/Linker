@@ -29,12 +29,18 @@
         
     }];
     
-    CGFloat xValue = self.tabBar.frame.size.width - (self.tabBar.frame.size.width / 5) + 20;
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(xValue, 4, 40, 40);
-    [button setBackgroundImage:[UIImage imageNamed:@"filter_tab"] forState:UIControlStateNormal];
-    [self.tabBar addSubview:button];
+    CGFloat segment = self.tabBar.frame.size.width / 5;
+    CGFloat xValue = self.tabBar.frame.size.width - segment + 20;
+    /*
+    UIButton *buttonProfile = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    buttonProfile.frame = CGRectMake(20, 4, 40, 40);
+    [buttonProfile setBackgroundImage:[UIImage imageNamed:@"profile_nav_button"] forState:UIControlStateNormal];
+    [self.tabBar addSubview:buttonProfile];
+    */
+    UIButton *buttonSettings = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    buttonSettings.frame = CGRectMake(xValue, 4, 40, 40);
+    [buttonSettings setBackgroundImage:[UIImage imageNamed:@"filter_tab"] forState:UIControlStateNormal];
+    [self.tabBar addSubview:buttonSettings];
 }
 
 - (void)didReceiveMemoryWarning {

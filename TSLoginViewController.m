@@ -218,11 +218,8 @@
         
         NSString *name = nil;
         NSString *profession = nil;
-        NSString *commingFrom = nil;
-        NSString *coingTo = nil;
+        NSString *company = nil;
         NSString *city = nil;
-        NSString *launguage = nil;
-        NSString *age = nil;
         NSString *mission = nil;
         NSString *about = nil;
         NSString *background = nil;
@@ -251,27 +248,15 @@
         
         
         
-        if (![self.fireUser.commingFrom isEqualToString:@""]) {
+        if (![self.fireUser.company isEqualToString:@""]) {
             
             
-            commingFrom = @"";
-            
-        } else {
-            
-            commingFrom = self.fireUser.commingFrom;
-        }
-        
-        
-        
-        if (![self.fireUser.coingTo isEqualToString:@""]) {
-            
-            coingTo = @"";
+            company = @"";
             
         } else {
             
-            coingTo = self.fireUser.coingTo;
+            company = self.fireUser.company;
         }
-        
         
         
         if (![self.fireUser.currentArrea isEqualToString:@""]) {
@@ -282,29 +267,6 @@
             
             city = self.fireUser.currentArrea;
         }
-        
-        
-        
-        if (![self.fireUser.launguage isEqualToString:@""]) {
-            
-            launguage = @"";
-            
-        } else {
-            
-            launguage = self.fireUser.launguage;
-        }
-        
-        
-        
-        if (![self.fireUser.age isEqualToString:@""]) {
-            
-            age = @"";
-            
-        } else {
-            
-            age = self.fireUser.age;
-        }
-        
         
         
         if (![self.fireUser.mission isEqualToString:@""]) {
@@ -362,11 +324,8 @@
                                    @"email":email,
                                    @"photoURL":photoURL,
                                    @"profession":profession,
-                                   @"commingFrom":commingFrom,
-                                   @"coingTo":coingTo,
+                                   @"company":company,
                                    @"city":city,
-                                   @"launguage":launguage,
-                                   @"age":age,
                                    @"mission":mission,
                                    @"about":about,
                                    @"background":background,

@@ -97,13 +97,9 @@ static NSInteger counter = 0;
             
             NSString *nameFriend = [indexCard objectForKey:@"items"];
             __block NSString *photoURL = [indexCard objectForKey:@"photoURL"];
-            NSString *userID = [indexCard objectForKey:@"fireUserID"];
             NSString *profession = [indexCard objectForKey:@"profession"];
-            NSString *commingFrom = [indexCard objectForKey:@"commingFrom"];
-            NSString *coingTo = [indexCard objectForKey:@"coingTo"];
+            NSString *company = [indexCard objectForKey:@"company"];
             NSString *currentArrea = [indexCard objectForKey:@"currentArrea"];
-            NSString *launguage = [indexCard objectForKey:@"launguage"];
-            NSString *age = [indexCard objectForKey:@"age"];
             
             
             NSURL *url = [NSURL URLWithString:photoURL];
@@ -111,7 +107,7 @@ static NSInteger counter = 0;
             
             self.profileView.nameLabel.text = nameFriend;
             self.profileView.professionLabel.text = profession;
-            self.profileView.coingToLabel.text = coingTo;
+            self.profileView.companyLabel.text = company;
             self.profileView.currentArreaLabel.text = currentArrea;
             
             if (url && url.scheme && url.host) {

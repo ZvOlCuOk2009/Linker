@@ -128,7 +128,7 @@
         
         
         NSString *profession = nil;
-        NSString *coingTo = nil;
+        NSString *company = nil;
         NSString *city = nil;
         NSString *mission = nil;
         NSString *about = nil;
@@ -137,12 +137,12 @@
         
         
         profession = self.fireUser.profession;
-        coingTo = self.fireUser.coingTo;
+        company = self.fireUser.company;
         
         if (self.locality) {
-            city = [NSString stringWithFormat:@"%@, %@", self.locality, self.country];
+            city = [NSString stringWithFormat:@"%@", self.locality];
         } else {
-            city = [NSString stringWithFormat:@"%@, %@", self.name, self.country];
+            city = [NSString stringWithFormat:@"%@", self.name];
         }
         
         mission = self.fireUser.mission;
@@ -156,7 +156,7 @@
                      @"photoURL":self.fireUser.photoURL,
                      @"userID":self.fireUser.uid,
                      @"profession":profession,
-                     @"coingTo":coingTo,
+                     @"company":company,
                      @"city":city,
                      @"mission":mission,
                      @"about":about,

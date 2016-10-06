@@ -22,6 +22,16 @@
 }
 
 
+- (instancetype)initWithmapView:(UIView *)mapView
+{
+    self = [super init];
+    if (self) {
+        self = [[TSSearchBar alloc] initWithFrame:CGRectMake(5, 20, 365, 50)];
+    }
+    return self;
+}
+
+
 - (void)drawRect:(CGRect)rect {
     
     self.searchBarStyle = UISearchBarStyleMinimal;

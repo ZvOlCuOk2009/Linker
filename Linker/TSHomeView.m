@@ -29,6 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *outButton;
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
+@property (strong, nonatomic) UIView *alert;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightInviteButtonConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightAvatarConstraint;
@@ -128,31 +129,41 @@
 
 - (IBAction)actionLogOut:(id)sender
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Do you want to exit the application?"
-                                                                             message:nil
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *actionYes = [UIAlertAction actionWithTitle:@"YES"
-                                                        style:UIAlertActionStyleDestructive
-                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                          [[TSFBManager sharedManager] logOutUser];
-                                                          
-                                                          UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-                                                          
-                                                          TSLoginViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"TSLoginViewController"];
-                                                          [self.settingScrollViewController presentViewController:controller animated:YES completion:nil];
-                                                      }];
+    self.alert = [[UIView alloc] init];
+    self.alert.frame = CGRectMake(self.frame.size.width / 4, - 250,
+                             self.frame.size.width / 1.5, self.frame.size.height / 4);
+    self.alert.backgroundColor = [UIColor whiteColor];
+    self.alert.layer.cornerRadius = 10;
     
-    UIAlertAction *actionNo = [UIAlertAction actionWithTitle:@"NO"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) { }];
+    [self addSubview:self.alert];
     
-    [alertController addAction:actionYes];
-    [alertController addAction:actionNo];
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        self.alert.frame = CGRectMake(self.frame.size.width / 4, (self.frame.size.height / 4) * 2,
+                                      self.frame.size.width / 1.5, self.frame.size.height / 4);
+    }];
     
-    [self.settingScrollViewController presentViewController:alertController animated:YES completion:nil];
+    
+    UIButton *yesButton = [[UIButton alloc] init];
+    yesButton.backgroundColor = [UIColor whiteColor];
+    yesButton.frame = CGRectMake(0, (self.alert.frame.size.height / 3) * 2,
+                                 self.alert.frame.size.width / 2, self.alert.frame.size.height / 3);
+    [yesButton setTitle:@"YES" forState:UIControlStateNormal];
+    [yesButton setTintColor:[UIColor redColor]];
+    [yesButton addTarget:self action:@selector(actionYesButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.alert addSubview:yesButton];
+    
+    UIButton *noButton = [[UIButton alloc] init];
+    noButton.backgroundColor = [UIColor whiteColor];
+    noButton.frame = CGRectMake(self.alert.frame.size.height / 2, (self.alert.frame.size.height / 3) * 2,
+                                 self.alert.frame.size.width / 2, self.alert.frame.size.height / 3);
+    [noButton setTitle:@"NO" forState:UIControlStateNormal];
+    [noButton setTintColor:[UIColor blueColor]];
+    [noButton addTarget:self action:@selector(actionNoButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.alert addSubview:noButton];
+    
 }
-
 
 
 - (BOOL)verificationURL:(NSString *)url
@@ -167,6 +178,30 @@
         verification = NO;
     }
     return verification;
+}
+
+
+- (void)actionYesButton
+{
+    [[TSFBManager sharedManager] logOutUser];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    TSLoginViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"TSLoginViewController"];
+    [self.window setRootViewController:controller];
+}
+
+
+- (void)actionNoButton
+{
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        self.alert.frame = CGRectMake(self.frame.size.width / 4, 780,
+                                      self.frame.size.width / 1.5, self.frame.size.height / 4);
+    }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.alert removeFromSuperview];
+    });
+    
 }
 
 @end

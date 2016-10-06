@@ -126,11 +126,8 @@
                                               NSString *imageURL = user.photoURL.absoluteString;
                                               
                                               NSString *profession = @"";
-                                              NSString *commingFrom = @"";
-                                              NSString *coingTo = @"";
+                                              NSString *company = @"";
                                               NSString *city = @"";
-                                              NSString *launguage = @"";
-                                              NSString *age = @"";
                                               NSString *mission = @"";
                                               NSString *about = @"";
                                               NSString *background = @"";
@@ -142,11 +139,8 @@
                                                                          @"email":email,
                                                                          @"photoURL":imageURL,
                                                                          @"profession":profession,
-                                                                         @"commingFrom":commingFrom,
-                                                                         @"coingTo":coingTo,
+                                                                         @"company":company,
                                                                          @"city":city,
-                                                                         @"launguage":launguage,
-                                                                         @"age":age,
                                                                          @"mission":mission,
                                                                          @"about":about,
                                                                          @"background":background,

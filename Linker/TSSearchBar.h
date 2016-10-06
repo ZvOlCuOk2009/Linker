@@ -11,5 +11,6 @@
 @interface TSSearchBar : UISearchBar
 
 - (instancetype)initWithView:(UIView *)view;
+- (instancetype)initWithmapView:(UIView *)mapView;
 
 @end
