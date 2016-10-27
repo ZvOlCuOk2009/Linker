@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E759851A86E6AAFC8481A47A /* libPods-Linker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D29642C0E74C3496425977 /* libPods-Linker.a */; };
 		FD026C591D928A080060074A /* TSRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD026C581D928A080060074A /* TSRegistrationViewController.m */; };
+		FD28614B1DC0DB21002CC586 /* TSTableViewCellHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28614A1DC0DB21002CC586 /* TSTableViewCellHeader.m */; };
 		FD29FD051D8D528800665A85 /* TSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29FD041D8D528800665A85 /* TSTableViewCell.m */; };
 		FD29FD071D8D61B900665A85 /* TSCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD29FD061D8D61B900665A85 /* TSCellView.xib */; };
 		FD29FD0A1D8D640F00665A85 /* TSCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29FD091D8D640F00665A85 /* TSCellView.m */; };
@@ -42,6 +43,7 @@
 		FDBBAB2A1D8B1DE300625A50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDBBAB291D8B1DE300625A50 /* GoogleService-Info.plist */; };
 		FDBBAB311D8B289400625A50 /* TSFireUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBBAB301D8B289400625A50 /* TSFireUser.m */; };
 		FDC491FF1D918F0500556E8D /* linkedin-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC491FE1D918F0400556E8D /* linkedin-sdk.framework */; };
+		FDCD1AE71DBB7BB200067DCF /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDCD1AE61DBB7BB200067DCF /* Contacts.framework */; };
 		FDE094A01D94737900DAA2F8 /* TSProfileView6.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE0949F1D94737800DAA2F8 /* TSProfileView6.xib */; };
 		FDE094A21D94756E00DAA2F8 /* TSProfileView6Plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE094A11D94756E00DAA2F8 /* TSProfileView6Plus.xib */; };
 		FDE094A41D94772B00DAA2F8 /* TSProfileView4.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE094A31D94772B00DAA2F8 /* TSProfileView4.xib */; };
@@ -60,8 +62,6 @@
 		FDEE778C1D89FA6C000FF69A /* libFBSDKShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEE77891D89FA6C000FF69A /* libFBSDKShareKit.a */; };
 		FDF073BE1DA45301000464BD /* TSSettingScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF073BD1DA45301000464BD /* TSSettingScrollViewController.m */; };
 		FDF1F4421DA27B4100D7009F /* TSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF1F4411DA27B4100D7009F /* TSSettingViewController.m */; };
-		FDF738611DA4F16A008379EA /* TSSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF738601DA4F16A008379EA /* TSSettingsView.m */; };
-		FDF738651DA4F82E008379EA /* TSHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF738641DA4F82E008379EA /* TSHomeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +87,8 @@
 		C0D29642C0E74C3496425977 /* libPods-Linker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Linker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD026C571D928A080060074A /* TSRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSRegistrationViewController.h; sourceTree = "<group>"; };
 		FD026C581D928A080060074A /* TSRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSRegistrationViewController.m; sourceTree = "<group>"; };
+		FD2861491DC0DB21002CC586 /* TSTableViewCellHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTableViewCellHeader.h; sourceTree = "<group>"; };
+		FD28614A1DC0DB21002CC586 /* TSTableViewCellHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTableViewCellHeader.m; sourceTree = "<group>"; };
 		FD29FD031D8D528800665A85 /* TSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTableViewCell.h; sourceTree = "<group>"; };
 		FD29FD041D8D528800665A85 /* TSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTableViewCell.m; sourceTree = "<group>"; };
 		FD29FD061D8D61B900665A85 /* TSCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSCellView.xib; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 		FD90BDC01D8C06760070A62D /* TSSaveFriendsFBDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSaveFriendsFBDatabase.h; sourceTree = "<group>"; };
 		FD90BDC11D8C06760070A62D /* TSSaveFriendsFBDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSaveFriendsFBDatabase.m; sourceTree = "<group>"; };
 		FD90BDC31D8C1BFC0070A62D /* TSTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTabBarController.h; sourceTree = "<group>"; };
-		FD90BDC41D8C1BFC0070A62D /* TSTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTabBarController.m; sourceTree = "<group>"; };
+		FD90BDC41D8C1BFC0070A62D /* TSTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 3; lastKnownFileType = sourcecode.c.objc; path = TSTabBarController.m; sourceTree = "<group>"; };
 		FD90BDC81D8C1FAD0070A62D /* TSMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMatchViewController.h; sourceTree = "<group>"; };
 		FD90BDC91D8C1FAD0070A62D /* TSMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMatchViewController.m; sourceTree = "<group>"; };
 		FD90BDCC1D8C20240070A62D /* UserStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserStoryboard.storyboard; sourceTree = "<group>"; };
@@ -147,6 +149,8 @@
 		FDBBAB2F1D8B289400625A50 /* TSFireUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSFireUser.h; sourceTree = "<group>"; };
 		FDBBAB301D8B289400625A50 /* TSFireUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSFireUser.m; sourceTree = "<group>"; };
 		FDC491FE1D918F0400556E8D /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "linkedin-sdk.framework"; sourceTree = "<group>"; };
+		FDCD1AE41DBB7B7200067DCF /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
+		FDCD1AE61DBB7BB200067DCF /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		FDE0949F1D94737800DAA2F8 /* TSProfileView6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSProfileView6.xib; sourceTree = "<group>"; };
 		FDE094A11D94756E00DAA2F8 /* TSProfileView6Plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSProfileView6Plus.xib; sourceTree = "<group>"; };
 		FDE094A31D94772B00DAA2F8 /* TSProfileView4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSProfileView4.xib; sourceTree = "<group>"; };
@@ -175,10 +179,6 @@
 		FDF073BD1DA45301000464BD /* TSSettingScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingScrollViewController.m; sourceTree = "<group>"; };
 		FDF1F4401DA27B4100D7009F /* TSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSettingViewController.h; sourceTree = "<group>"; };
 		FDF1F4411DA27B4100D7009F /* TSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingViewController.m; sourceTree = "<group>"; };
-		FDF7385F1DA4F16A008379EA /* TSSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSettingsView.h; sourceTree = "<group>"; };
-		FDF738601DA4F16A008379EA /* TSSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingsView.m; sourceTree = "<group>"; };
-		FDF738631DA4F82E008379EA /* TSHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSHomeView.h; sourceTree = "<group>"; };
-		FDF738641DA4F82E008379EA /* TSHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSHomeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDCD1AE71DBB7BB200067DCF /* Contacts.framework in Frameworks */,
 				FDEE778A1D89FA6C000FF69A /* libFBSDKCoreKit.a in Frameworks */,
 				FDC491FF1D918F0500556E8D /* linkedin-sdk.framework in Frameworks */,
 				FDEE778B1D89FA6C000FF69A /* libFBSDKLoginKit.a in Frameworks */,
@@ -214,6 +215,8 @@
 		3045B9A320E2E1E3CC49AEC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDCD1AE61DBB7BB200067DCF /* Contacts.framework */,
+				FDCD1AE41DBB7B7200067DCF /* ContactsUI.framework */,
 				FDEE77871D89FA6C000FF69A /* libFBSDKCoreKit.a */,
 				FDEE77881D89FA6C000FF69A /* libFBSDKLoginKit.a */,
 				FDEE77891D89FA6C000FF69A /* libFBSDKShareKit.a */,
@@ -234,6 +237,8 @@
 		FD29FD021D8D51D900665A85 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				FD2861491DC0DB21002CC586 /* TSTableViewCellHeader.h */,
+				FD28614A1DC0DB21002CC586 /* TSTableViewCellHeader.m */,
 				FD29FD031D8D528800665A85 /* TSTableViewCell.h */,
 				FD29FD041D8D528800665A85 /* TSTableViewCell.m */,
 			);
@@ -326,7 +331,6 @@
 				FD72A2231D8C96A600D0BE2F /* TSView.m */,
 				FDBBAB231D8B189B00625A50 /* Xibs */,
 				FDBBAB281D8B1A4500625A50 /* HandlerProfileView */,
-				FDF738621DA4F80F008379EA /* SettingsView */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -478,17 +482,6 @@
 				FDEE77751D89E103000FF69A /* Info.plist */,
 			);
 			path = LinkerUITests;
-			sourceTree = "<group>";
-		};
-		FDF738621DA4F80F008379EA /* SettingsView */ = {
-			isa = PBXGroup;
-			children = (
-				FDF7385F1DA4F16A008379EA /* TSSettingsView.h */,
-				FDF738601DA4F16A008379EA /* TSSettingsView.m */,
-				FDF738631DA4F82E008379EA /* TSHomeView.h */,
-				FDF738641DA4F82E008379EA /* TSHomeView.m */,
-			);
-			name = SettingsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -708,12 +701,12 @@
 				FD72A2241D8C96A600D0BE2F /* TSView.m in Sources */,
 				FD90BDD71D8C32EB0070A62D /* TSRetriveFriendsFBDatabase.m in Sources */,
 				FD72A2211D8C94DA00D0BE2F /* TSContactViewController.m in Sources */,
-				FDF738651DA4F82E008379EA /* TSHomeView.m in Sources */,
 				FD026C591D928A080060074A /* TSRegistrationViewController.m in Sources */,
 				FD72A2281D8C992100D0BE2F /* TSSearchBar.m in Sources */,
 				FD72A21B1D8C946300D0BE2F /* TSMessagerViewController.m in Sources */,
 				FD29FD051D8D528800665A85 /* TSTableViewCell.m in Sources */,
 				FDEE77501D89E0DF000FF69A /* main.m in Sources */,
+				FD28614B1DC0DB21002CC586 /* TSTableViewCellHeader.m in Sources */,
 				FD90BDCA1D8C1FAD0070A62D /* TSMatchViewController.m in Sources */,
 				FD90BDC51D8C1BFC0070A62D /* TSTabBarController.m in Sources */,
 				FD90BDBF1D8C05FB0070A62D /* TSParsingManager.m in Sources */,
@@ -722,7 +715,6 @@
 				FD72A2131D8C7F0000D0BE2F /* TSMapKitViewController.m in Sources */,
 				FD6C0A6D1D9C6E9600F56645 /* TSParsingUserName.m in Sources */,
 				FD90BDBC1D8C00670070A62D /* TSFBManager.m in Sources */,
-				FDF738611DA4F16A008379EA /* TSSettingsView.m in Sources */,
 				FD90BDB81D8BDE3C0070A62D /* TSChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

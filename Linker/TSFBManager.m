@@ -56,7 +56,7 @@
 - (FBSDKProfilePictureView *)requestUserImageFromTheServerFacebook:(UIImageView *)currentImageView ID:(NSString *)ID
 {
     
-    FBSDKProfilePictureView *profilePictureview = [[FBSDKProfilePictureView alloc]initWithFrame:currentImageView.frame];
+    FBSDKProfilePictureView *profilePictureview = [[FBSDKProfilePictureView alloc] initWithFrame:currentImageView.frame];
     [profilePictureview setProfileID:ID];
     return profilePictureview;
 }

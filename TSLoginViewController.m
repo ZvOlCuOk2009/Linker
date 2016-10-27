@@ -31,15 +31,7 @@
 @property (strong, nonatomic) TSFireUser *fireUser;
 @property (strong, nonatomic) NSMutableArray *userFriends;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightImageViewUserConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightImageViewPasswordConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightButtonSingInConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLogoConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoTopConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoTopConstraint2;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *forgotTopConstraint;
 @property (strong, nonatomic) IBOutlet UIView *forgotTopConstraint2;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *checkboxTopConstraint;
 
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
@@ -49,7 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     
     NSError *error;
@@ -69,35 +60,16 @@
     
     self.ref = [[FIRDatabase database] reference];
     
-    self.signInButton.layer.cornerRadius = 3;
     self.signInButton.layer.masksToBounds = YES;
-    
-    self.signUpButton.layer.cornerRadius = 2;
-    self.signUpButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.signUpButton.layer.borderWidth = 1;
+    self.signUpButton.layer.masksToBounds = YES;
 
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
         if (IS_IPHONE_4) {
             
-            
-            
         } else if (IS_IPHONE_5) {
             
-            self.heightImageViewUserConstraint.constant = 40;
-            self.heightImageViewPasswordConstraint.constant = 40;
-            self.heightButtonSingInConstraint.constant = 40;
-            self.bottomLogoConstraint.constant = 20;
-            self.logoTopConstraint.constant = 20;
-            self.logoTopConstraint2.constant = 20;
-            self.forgotTopConstraint.constant = 7;
-            self.checkboxTopConstraint.constant = 7;
-            
         } else if (IS_IPHONE_6) {
-            
-            self.heightImageViewUserConstraint.constant = 50;
-            self.heightImageViewPasswordConstraint.constant = 50;
-            self.heightButtonSingInConstraint.constant = 50;
             
         } else if (IS_IPHONE_6_PLUS) {
             
@@ -445,42 +417,5 @@
 }
 
 
-#pragma mark - Autorization Linkedin
-
-
-- (IBAction)actButtonLinkedin:(id)sender
-{
-    [LISDKSessionManager createSessionWithAuth:[NSArray arrayWithObjects:LISDK_BASIC_PROFILE_PERMISSION, LISDK_EMAILADDRESS_PERMISSION, nil]
-                                         state:@"code"
-                        showGoToAppStoreDialog:YES
-                                  successBlock:^(NSString *returnState) {
-                                      
-                                      [[LISDKAPIHelper sharedInstance] getRequest:@"https://api.linkedin.com/v1/people/~"
-                                                                          success:^(LISDKAPIResponse *response) {
-                                                                              
-                                                                              NSData* data = [response.data dataUsingEncoding:NSUTF8StringEncoding];
-                                                                              NSDictionary *dictResponse = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                                                                              
-                                                                              NSString *authUsername = [NSString stringWithFormat: @"%@ %@", [dictResponse valueForKey: @"firstName"], [dictResponse valueForKey: @"lastName"]];
-                                                                              NSLog(@"Authenticated user name  : %@", authUsername);
-                                                                              
-                                                                          } error:^(LISDKAPIError *error) {
-                                                                              
-                                                                          }];
-                                  } errorBlock:^(NSError *error) {
-                                      NSLog(@"%s %@","error called! ", [error description]);
-                                  }];
-}
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

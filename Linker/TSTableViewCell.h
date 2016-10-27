@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarUser;
 @property (weak, nonatomic) IBOutlet UIView *blueRectangle;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end

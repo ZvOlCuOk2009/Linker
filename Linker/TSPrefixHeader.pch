@@ -20,5 +20,6 @@
 #define GRAY_COLOR RGB(65, 70, 80)
 #define GREEN_COLOR RGB(72, 178, 200)
 #define LIGHT_GRAY_COLOR RGB(240, 241, 245)
+#define TEXT_COLOR RGB(200, 200, 200)
 
 #endif /* TSPrefixHeader_pch */

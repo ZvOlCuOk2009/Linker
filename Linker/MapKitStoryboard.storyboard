@@ -78,14 +78,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="huf-ld-Pli" firstAttribute="top" secondItem="sYK-f9-5jt" secondAttribute="top" id="FMt-3I-UnM"/>
-                            <constraint firstAttribute="trailing" secondItem="1ce-8g-6oI" secondAttribute="trailing" id="Tno-fy-pUU"/>
-                            <constraint firstItem="1ce-8g-6oI" firstAttribute="leading" secondItem="sYK-f9-5jt" secondAttribute="leading" id="e4c-dU-YjV"/>
-                            <constraint firstItem="1ce-8g-6oI" firstAttribute="top" secondItem="sYK-f9-5jt" secondAttribute="top" id="mFs-lQ-gS2"/>
-                            <constraint firstAttribute="trailing" secondItem="huf-ld-Pli" secondAttribute="trailing" id="mIY-1B-8Df"/>
-                            <constraint firstItem="YVo-UR-Rpt" firstAttribute="top" secondItem="huf-ld-Pli" secondAttribute="bottom" constant="513" id="r70-pn-wjm"/>
-                            <constraint firstItem="YVo-UR-Rpt" firstAttribute="top" secondItem="1ce-8g-6oI" secondAttribute="bottom" id="xxG-Hk-rb7"/>
-                            <constraint firstItem="huf-ld-Pli" firstAttribute="leading" secondItem="sYK-f9-5jt" secondAttribute="leading" id="zvQ-1v-YOj"/>
+                            <constraint firstItem="huf-ld-Pli" firstAttribute="trailing" secondItem="1ce-8g-6oI" secondAttribute="trailing" id="AbN-Ai-AUw"/>
+                            <constraint firstAttribute="bottom" secondItem="huf-ld-Pli" secondAttribute="bottom" constant="563" id="BBc-0y-RbJ"/>
+                            <constraint firstItem="huf-ld-Pli" firstAttribute="top" secondItem="sYK-f9-5jt" secondAttribute="top" id="Hsm-Qn-BrP"/>
+                            <constraint firstItem="huf-ld-Pli" firstAttribute="leading" secondItem="1ce-8g-6oI" secondAttribute="leading" id="I4o-Hc-md0"/>
+                            <constraint firstItem="1ce-8g-6oI" firstAttribute="leading" secondItem="sYK-f9-5jt" secondAttribute="leading" id="QqG-Hn-jcA"/>
+                            <constraint firstAttribute="trailing" secondItem="1ce-8g-6oI" secondAttribute="trailing" id="gx4-y7-JiC"/>
+                            <constraint firstItem="YVo-UR-Rpt" firstAttribute="top" secondItem="1ce-8g-6oI" secondAttribute="bottom" id="lVX-IL-uDs"/>
+                            <constraint firstItem="1ce-8g-6oI" firstAttribute="top" secondItem="huf-ld-Pli" secondAttribute="bottom" id="odP-vh-Wna"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="pin_tab" id="neJ-mC-dUJ">

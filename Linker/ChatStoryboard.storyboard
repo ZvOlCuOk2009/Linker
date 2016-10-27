@@ -330,7 +330,7 @@
     <resources>
         <image name="Phone 3x" width="50" height="50"/>
         <image name="Skype 3x" width="50" height="50"/>
-        <image name="background" width="375" height="667"/>
+        <image name="background" width="207" height="368"/>
         <image name="chat_button" width="33" height="33"/>
         <image name="chat_nav_button" width="20" height="20"/>
         <image name="chat_tab" width="44" height="44"/>

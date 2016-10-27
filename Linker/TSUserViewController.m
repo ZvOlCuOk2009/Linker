@@ -8,21 +8,37 @@
 
 #import "TSUserViewController.h"
 #import "TSLoginViewController.h"
+#import "TSTableViewCell.h"
+#import "TSTableViewCellHeader.h"
 #import "TSProfileView.h"
 #import "TSFireUser.h"
 #import "TSFBManager.h"
+#import "TSPrefixHeader.pch"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <AddressBook/AddressBook.h>
+#import <Contacts/Contacts.h>
 
 @import Firebase;
 @import FirebaseDatabase;
 
-@interface TSUserViewController ()
+@interface TSUserViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) TSFireUser *fireUser;
+
+@property (strong, nonatomic) NSArray *dataSourse;
+@property (strong, nonatomic) NSMutableArray *dataSourseGrowth;
+@property (strong, nonatomic) NSMutableArray *dataSourseWeight;
+@property (strong, nonatomic) NSMutableArray *dataSourseAge;
+@property (strong, nonatomic) NSArray *dataSourseFigure;
+@property (strong, nonatomic) NSArray *dataSourseEyes;
+@property (strong, nonatomic) NSArray *dataSourseHair;
+@property (strong, nonatomic) NSArray *dataSourseTarget;
+@property (strong, nonatomic) NSArray *tags;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -30,29 +46,70 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    self.ref = [[FIRDatabase database] reference];
-        
-    [self reloadView];
+    self.tags = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21"];
+    self.dataSourse = @[@"Познакомлюсь", @"Я ищу", @"В возрасте", @"С какой целью", @"Моя внешность", @"Рост", @"Вес", @"Фигура", @"Глаза", @"Волосы", @"Обо мне", @"Отношения", @"Дети", @"Доход", @"Образование", @"Языки", @"Жилье", @"Автомобиль", @"Хобби", @"Курение", @"Алкоголь"];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self reloadView];
-    });
+    self.dataSourseGrowth = [NSMutableArray array];
+    self.dataSourseWeight = [NSMutableArray array];
+    self.dataSourseFigure = [NSMutableArray array];
+    self.dataSourseEyes = [NSMutableArray array];
+    self.dataSourseHair = [NSMutableArray array];
+    self.dataSourseAge = [NSMutableArray array];
     
-    NSLog(@"token %@", [[FBSDKAccessToken currentAccessToken] tokenString]);
+    for (int i = 140; i < 220; i++) {
+        NSString *row = [NSString stringWithFormat:@"%d", i];
+        [self.dataSourseGrowth addObject:row];
+    }
     
+    for (int i = 40; i < 150; i++) {
+        NSString *row = [NSString stringWithFormat:@"%d", i];
+        [self.dataSourseWeight addObject:row];
+    }
     
-//    [self phoneNumber];
+    for (int i = 18; i < 80; i++) {
+        NSString *row = [NSString stringWithFormat:@"%d", i];
+        [self.dataSourseAge addObject:row];
+    }
+    
+    self.dataSourseFigure = @[@"Спортивная", @"Стройная", @"Пара лишних кило", @"Полная"];
+    self.dataSourseEyes = @[@"Карие", @"Серые", @"Голубые", @"Зеленые"];
+    self.dataSourseHair = @[@"Блонд", @"Руссые", @"Шатен", @"Брюнет", @"Черные", @"Седые", @"Cбриты"];
+    self.dataSourseTarget = @[@"Дружба и переписка", @"Флирт", @"Секс", @"Романтические отношения", @"Создание семьи"];
     
 }
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    TSTableViewCell *cell = [self.tableView cellForRowAtIndexPath:0];
+    
+}
+
+
+
+/*
 
 - (void)reloadView
 {
     [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         
         self.fireUser = [TSFireUser initWithSnapshot:snapshot];
+        
+        FBSDKProfilePictureView *avatar = [[TSFBManager sharedManager] requestUserImageFromTheServerFacebook:self.avatarImageView ID:@"me"];
+        avatar.layer.cornerRadius = avatar.frame.size.width / 2;
+        avatar.layer.masksToBounds = YES;
+        [self.view addSubview:avatar];
+        
+        
         
         NSDictionary *content = nil;
         
@@ -104,115 +161,276 @@
         
         [self.view addSubview:profileView];
         
+        
+                                                                                                                                                [NSURL URLWithString:self.fireUser.photoURL]]];
+        
     }];
+    
+    
 
+}
+ 
+ */
+
+
+
+#pragma mark - UITableViewDataSource
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.dataSourse count];
 }
 
 
-- (void)phoneNumber
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    static NSString *identifierHeader = @"header";
+    static NSString *identifierCell = @"cell";
     
-    self.navigationController.navigationBarHidden = true;
-    ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
     
-    if (status == kABAuthorizationStatusDenied || status == kABAuthorizationStatusRestricted) {
-        
-        [[[UIAlertView alloc] initWithTitle:nil message:@"This app requires access to your contacts to function properly. Please visit to the \"Privacy\" section in the iPhone Settings app." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        return;
-    }
-    
-    CFErrorRef error = NULL;
-    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, &error);
-    
-    if (!addressBook) {
-        NSLog(@"ABAddressBookCreateWithOptions error: %@", CFBridgingRelease(error));
-        return;
-    }
-    
-    ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
-        if (error) {
-            NSLog(@"ABAddressBookRequestAccessWithCompletion error: %@", CFBridgingRelease(error));
+    if (indexPath.row == 0) {
+
+        TSTableViewCellHeader *cell = (TSTableViewCellHeader *)[tableView dequeueReusableCellWithIdentifier:identifierHeader];
+        if (!cell) {
+            cell = [[TSTableViewCellHeader alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierHeader];
         }
         
-        if (granted) {
-            
-            [self listPeopleInAddressBook:addressBook];
-        } else {
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        {
+            if (IS_IPHONE_4) {
                 
-                [[[UIAlertView alloc] initWithTitle:nil message:@"This app requires access to your contacts to function properly. Please visit to the \"Privacy\" section in the iPhone Settings app." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-            });
+            } else if (IS_IPHONE_5) {
+                
+            } else if (IS_IPHONE_6) {
+                
+            } else if (IS_IPHONE_6_PLUS) {
+                
+            }
         }
-        CFRelease(addressBook);
-    });
-    
-}
-
-
-- (NSArray *)listPeopleInAddressBook:(ABAddressBookRef)addressBook
-
-{
-    
-    NSArray *allPeople = CFBridgingRelease(ABAddressBookCopyArrayOfAllPeople(addressBook));
-    
-    NSMutableArray *contacts = [NSMutableArray array];
-    NSInteger numberOfPeople = [allPeople count];
-    
-    for (NSInteger i = 0; i < numberOfPeople; i++) {
-        ABRecordRef person = (__bridge ABRecordRef)allPeople[i];
         
-        NSString *firstName = CFBridgingRelease(ABRecordCopyValue(person, kABPersonFirstNameProperty));
-        NSString *lastName  = CFBridgingRelease(ABRecordCopyValue(person, kABPersonLastNameProperty));
+        FBSDKProfilePictureView *background = [[TSFBManager sharedManager] requestUserImageFromTheServerFacebook:cell.backgroundImageView ID:@"me"];
+        background.frame = CGRectMake(0, 0, 414, 414);
         
-        ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
-        NSString *phoneNumber = CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneNumbers, 0));
+        FBSDKProfilePictureView *avatar = [[TSFBManager sharedManager] requestUserImageFromTheServerFacebook:cell.avatarImageView ID:@"me"];
+        avatar.frame = CGRectMake(85, 85, 244, 244);
         
-        [contacts addObject:[NSString stringWithFormat:@"%@ %@ %@", firstName, lastName, phoneNumber]];
-    }
-    return contacts;
-    
-}
-
-
-- (NSString *)retriveNumberPhoneContacts:(NSString *)contact
-
-{
-    CFErrorRef error = NULL;
-    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, &error);
-    
-    NSArray *contacts = [self listPeopleInAddressBook:addressBook];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@", contact];
-    NSArray *searchArray = [contacts filteredArrayUsingPredicate:predicate];
-    NSString *serchContact = nil;
-    
-    if ([searchArray count] > 0) {
-        serchContact = [searchArray objectAtIndex:0];
-    } else {
-        serchContact = nil;
+        avatar.layer.cornerRadius = avatar.frame.size.width / 2;
+        avatar.layer.masksToBounds = YES;
+        [cell addSubview:background];
+        [cell addSubview:avatar];
+        
+        return  cell;
+        
     }
     
-    return serchContact;
+    TSTableViewCell *cell = (TSTableViewCell *)[tableView dequeueReusableCellWithIdentifier:identifierCell];
+    
+    if (!cell) {
+        cell = [[TSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierCell];
+    }
+    
+    
+    if ([cell isKindOfClass:[TSTableViewCell class]]) {
+//        NSInteger tag = [[self.tags objectAtIndex:indexPath.row - 1] integerValue];
+        cell.titleLabel.text = [self.dataSourse objectAtIndex:indexPath.row];
+        NSInteger tag = indexPath.row;
+        cell.pickerView.tag = tag;
+    }
+    
+    if (indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 5 || indexPath.row == 11) {
+        cell.pickerView.hidden = YES;
+    }
+
+    return  cell;
+}
+
+
+
+#pragma mark - UITableViewDelegate
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 414;
+    }
+    
+    return 40;
+}
+
+
+
+#pragma mark - UIPickerViewDataSource
+
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView
+{
+    if (thePickerView.tag == 3)
+    {
+        return 2;
+    }
+    return 1;
+}
+
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component
+{
+    
+    switch (thePickerView.tag) {
+        case 1:
+            return 0;
+            break;
+        case 2:
+            return 0;
+            break;
+        case 3:
+            return self.dataSourseAge.count;
+            break;
+        case 4:
+            return self.dataSourseTarget.count;
+            break;
+        case 5:
+            return 0;
+            break;
+        case 6:
+            return self.dataSourseGrowth.count;
+            break;
+        case 7:
+            return self.dataSourseWeight.count;
+            break;
+        case 8:
+            return self.dataSourseFigure.count;
+            break;
+        case 9:
+            return self.dataSourseEyes.count;
+            break;
+        case 10:
+            return self.dataSourseHair.count;
+            break;
+        default:
+            return 0;
+            break;
+    }
+    
+    
     
 }
+
+
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+
+    switch (thePickerView.tag) {
+        case 1:
+            return nil;
+            break;
+        case 2:
+            return nil;
+            break;
+        case 3:
+            return [self.dataSourseAge objectAtIndex:row];
+            break;
+        case 4:
+            return [self.dataSourseTarget objectAtIndex:row];
+            break;
+        case 5:
+            return nil;
+            break;
+        case 6:
+            return [self.dataSourseGrowth objectAtIndex:row];
+            break;
+        case 7:
+            return [self.dataSourseWeight objectAtIndex:row];
+            break;
+        case 8:
+            return [self.dataSourseFigure objectAtIndex:row];
+            break;
+        case 9:
+            return [self.dataSourseEyes objectAtIndex:row];
+            break;
+        case 10:
+            return [self.dataSourseHair objectAtIndex:row];
+            break;
+        default:
+            return 0;
+            break;
+    }
+    
+}
+
+
+#pragma mark - UIPickerViewDelegate
+
+
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
+{
+    return 30;
+}
+
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    
+    [[pickerView.subviews objectAtIndex:1] setHidden:TRUE];
+    [[pickerView.subviews objectAtIndex:2] setHidden:TRUE]; // убрать полосы pickerView
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, pickerView.frame.size.width, 40)];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = TEXT_COLOR;
+    label.font = [UIFont fontWithName:@"System" size:17];
+    label.textAlignment = NSTextAlignmentRight;
+    
+    NSLog(@"component %ld", component);
+    
+    switch (pickerView.tag) {
+        case 1:
+            return nil;
+            break;
+        case 2:
+            return nil;
+            break;
+        case 3:
+            label.text = [NSString stringWithFormat:@"%@", [self.dataSourseAge objectAtIndex:row]];
+            break;
+        case 4:
+            label.text = [NSString stringWithFormat:@"%@", [self.dataSourseTarget objectAtIndex:row]];
+            break;
+        case 5:
+            return nil;
+            break;
+        case 6:
+            label.text = [NSString stringWithFormat:@"%@ см", [self.dataSourseGrowth objectAtIndex:row]];
+            break;
+        case 7:
+            label.text = [NSString stringWithFormat:@"%@ кг", [self.dataSourseWeight objectAtIndex:row]];
+            break;
+        case 8:
+            label.text = [NSString stringWithFormat:@"%@", [self.dataSourseFigure objectAtIndex:row]];
+            break;
+        case 9:
+            label.text = [NSString stringWithFormat:@"%@", [self.dataSourseEyes objectAtIndex:row]];
+            break;
+        case 10:
+            label.text = [NSString stringWithFormat:@"%@", [self.dataSourseHair objectAtIndex:row]];
+            break;
+        default:
+            return 0;
+            break;
+    }
+    
+    return label;    
+}
+
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

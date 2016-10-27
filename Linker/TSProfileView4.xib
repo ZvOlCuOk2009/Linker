@@ -248,7 +248,7 @@
             <connections>
                 <outlet property="arrowImageView" destination="0pg-m8-5Qx" id="7CS-k8-itl"/>
                 <outlet property="avatarImageView" destination="eiy-gF-xIB" id="eKq-g0-QR4"/>
-                <outlet property="coingToLabel" destination="dxE-Xt-ziQ" id="xFS-ud-Nu7"/>
+                <outlet property="companyLabel" destination="dxE-Xt-ziQ" id="HOz-tP-AaS"/>
                 <outlet property="contentTextView" destination="3mV-P6-OEt" id="7X3-E9-2QP"/>
                 <outlet property="countMatchLabel" destination="Qqh-e1-fiP" id="FUj-Of-G2Q"/>
                 <outlet property="currentArreaLabel" destination="PKV-t1-5zv" id="Fkl-R5-W2f"/>

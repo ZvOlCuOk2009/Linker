@@ -42,8 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
     
     self.ref = [[FIRDatabase database] reference];
     
@@ -105,7 +104,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 
@@ -115,44 +114,44 @@
 - (IBAction)actPhoneButton:(UIButton *)sender
 {
     
-    NSIndexPath *indexPath = [self determineTheAffiliationSectionOfTheCell:sender];
-    
-    NSInteger curruntUserIndex = indexPath.section;
-    
-    NSArray *nameContacts = [TSParsingUserName parsingOfTheUserName:self.friends];
-    NSString *currentUser = [nameContacts objectAtIndex:curruntUserIndex];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"UserStoryboard" bundle:[NSBundle mainBundle]];
-    
-    TSUserViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"UserStoryboard"];
-    NSString *contact = [controller retriveNumberPhoneContacts:currentUser];
-    
-    NSCharacterSet *nonDigitCharacterSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
-    NSString *number = [[contact componentsSeparatedByCharactersInSet:nonDigitCharacterSet] componentsJoinedByString:@""];
-    
-    if (number) {
-        
-        NSString *numberPrefix = [NSString stringWithFormat:@"tel:%@", number];
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:numberPrefix]];
-        
-    } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"The selected user does not have a phone number in the phone book"
-                                                                                 message:nil
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
-                                                         style:UIAlertActionStyleDefault
-                                                       handler:^(UIAlertAction * _Nonnull action) {
-                                                           
-                                                           [self secondAlert];
-                                                       }];
-        
-        [alertController addAction:action];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-    
+//    NSIndexPath *indexPath = [self determineTheAffiliationSectionOfTheCell:sender];
+//    
+//    NSInteger curruntUserIndex = indexPath.section;
+//    
+//    NSArray *nameContacts = [TSParsingUserName parsingOfTheUserName:self.friends];
+//    NSString *currentUser = [nameContacts objectAtIndex:curruntUserIndex];
+//    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"UserStoryboard" bundle:[NSBundle mainBundle]];
+//    
+//    TSUserViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"UserStoryboard"];
+//    NSString *contact = [controller retriveNumberPhoneContacts:currentUser];
+//    
+//    NSCharacterSet *nonDigitCharacterSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+//    NSString *number = [[contact componentsSeparatedByCharactersInSet:nonDigitCharacterSet] componentsJoinedByString:@""];
+//    
+//    if (number) {
+//        
+//        NSString *numberPrefix = [NSString stringWithFormat:@"tel:%@", number];
+//        
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:numberPrefix]];
+//        
+//    } else {
+//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"The selected user does not have a phone number in the phone book"
+//                                                                                 message:nil
+//                                                                          preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
+//                                                         style:UIAlertActionStyleDefault
+//                                                       handler:^(UIAlertAction * _Nonnull action) {
+//                                                           
+//                                                           [self secondAlert];
+//                                                       }];
+//        
+//        [alertController addAction:action];
+//        
+//        [self presentViewController:alertController animated:YES completion:nil];
+//    }
+//    
 }
 
 
@@ -189,7 +188,7 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"noticeOnTheMethodCall" object:ID];
     }
     
-    NSLog(@"section ID %ld", indexPath.section);
+    NSLog(@"section ID %ld", (long)indexPath.section);
     
 }
 

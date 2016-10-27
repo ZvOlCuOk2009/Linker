@@ -215,7 +215,6 @@
                     <gestureRecognizers/>
                     <connections>
                         <outlet property="avatarImageView" destination="AJB-Ac-lnF" id="jGa-cB-7jC"/>
-                        <outlet property="coingToLabel" destination="FS9-a1-xNu" id="iR3-bt-PNN"/>
                         <outlet property="countMatchLabel" destination="WpX-on-xAL" id="war-pq-34e"/>
                         <outlet property="currentArreaLabel" destination="92a-Wc-Ol9" id="nUc-eq-HpU"/>
                         <outlet property="professionLabel" destination="SAQ-7h-5IC" id="qg8-nE-Yfg"/>
@@ -256,7 +255,7 @@
             <connections>
                 <outlet property="arrowImageView" destination="fLO-p8-mss" id="uMe-CJ-lYX"/>
                 <outlet property="avatarImageView" destination="AJB-Ac-lnF" id="H0o-zO-ZnI"/>
-                <outlet property="coingToLabel" destination="FS9-a1-xNu" id="Bj8-bZ-qBj"/>
+                <outlet property="companyLabel" destination="FS9-a1-xNu" id="UxO-oO-6Cq"/>
                 <outlet property="contentTextView" destination="aQ3-1L-xOS" id="afI-uV-WfO"/>
                 <outlet property="countMatchLabel" destination="WpX-on-xAL" id="IIj-YN-2Qd"/>
                 <outlet property="currentArreaLabel" destination="92a-Wc-Ol9" id="95o-dg-3Aw"/>
