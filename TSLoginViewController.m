@@ -81,7 +81,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 
@@ -147,10 +147,6 @@
                                   [self openTheTabBarController];
                               }];
     
-//    if (![FBSDKAccessToken currentAccessToken])
-//    {
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    }
     
 }
 
@@ -171,11 +167,6 @@
 - (void)saveUserToFirebase:(FIRUser *)user
 {
     
-    [[TSFBManager sharedManager] requestUserFriendsTheServerFacebook:^(NSArray *friends)
-     {
-         self.userFriends = [TSParsingManager parsingFriendsFacebook:friends];
-     }];
-    
     
     [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         
@@ -189,13 +180,25 @@
         
         
         NSString *name = nil;
-        NSString *profession = nil;
-        NSString *company = nil;
-        NSString *city = nil;
-        NSString *mission = nil;
-        NSString *about = nil;
-        NSString *background = nil;
-        NSString *interest = nil;
+        NSString *gender = nil;
+        NSString *age = nil;
+        NSString *target = nil;
+        NSString *growth = nil;
+        NSString *weight = nil;
+        NSString *figure = nil;
+        NSString *eyes = nil;
+        NSString *hair = nil;
+        NSString *relations = nil;
+        NSString *childs = nil;
+        NSString *earnings = nil;
+        NSString *education = nil;
+        NSString *launguages = nil;
+        NSString *housing = nil;
+        NSString *car = nil;
+        NSString *hobby = nil;
+        NSString *smoking = nil;
+        NSString *alcohole = nil;
+        
         
         
         if (![self.fireUser.displayName isEqualToString:@""]) {
@@ -209,79 +212,192 @@
         
         
         
-        if (![self.fireUser.profession isEqualToString:@""]) {
+        if (![self.fireUser.gender isEqualToString:@""]) {
             
-            profession = @"";
+            gender = @"";
             
         } else {
             
-            profession = self.fireUser.profession;
+            gender = self.fireUser.gender;
         }
         
         
         
-        if (![self.fireUser.company isEqualToString:@""]) {
+        if (![self.fireUser.age isEqualToString:@""]) {
             
             
-            company = @"";
+            age = @"";
             
         } else {
             
-            company = self.fireUser.company;
+            age = self.fireUser.age;
         }
         
         
-        if (![self.fireUser.currentArrea isEqualToString:@""]) {
+        if (![self.fireUser.target isEqualToString:@""]) {
             
-            city = @"";
+            target = @"";
             
         } else {
             
-            city = self.fireUser.currentArrea;
+            target = self.fireUser.age;
         }
         
         
-        if (![self.fireUser.mission isEqualToString:@""]) {
+        if (![self.fireUser.growth isEqualToString:@""]) {
             
-            mission = @"";
+            growth = @"";
             
         } else {
             
-            mission = self.fireUser.mission;
+            growth = self.fireUser.growth;
             
         }
         
         
-        
-        if (![self.fireUser.about isEqualToString:@""]) {
+        if (![self.fireUser.weight isEqualToString:@""]) {
             
-            about = @"";
+            weight = @"";
             
         } else {
             
-            about = self.fireUser.about;
+            weight = self.fireUser.weight;
+        }
+        
+        
+        if (![self.fireUser.figure isEqualToString:@""]) {
+            
+            figure = @"";
+            
+        } else {
+            
+            figure = self.fireUser.figure;
         }
         
         
         
-        if (![self.fireUser.background isEqualToString:@""]) {
+        if (![self.fireUser.eyes isEqualToString:@""]) {
             
-            background = @"";
+            eyes = @"";
             
         } else {
             
-            background = self.fireUser.background;
+            eyes = self.fireUser.eyes;
+        }
+        
+        
+        if (![self.fireUser.hair isEqualToString:@""]) {
+            
+            hair = @"";
+            
+        } else {
+            
+            hair = self.fireUser.hair;
+        }
+    
+        
+        
+        if (![self.fireUser.relations isEqualToString:@""]) {
+            
+            relations = @"";
+            
+        } else {
+            
+            relations = self.fireUser.relations;
+        }
+        
+        
+        if (![self.fireUser.childs isEqualToString:@""]) {
+            
+            childs = @"";
+            
+        } else {
+            
+            childs = self.fireUser.childs;
         }
         
         
         
-        if (![self.fireUser.interest isEqualToString:@""]) {
+        if (![self.fireUser.earnings isEqualToString:@""]) {
             
-            interest = @"";
+            
+            earnings = @"";
             
         } else {
             
-            interest = self.fireUser.interest;
+            earnings = self.fireUser.earnings;
+        }
+        
+        
+        if (![self.fireUser.education isEqualToString:@""]) {
+            
+            education = @"";
+            
+        } else {
+            
+            education = self.fireUser.education;
+        }
+        
+        
+        if (![self.fireUser.launguages isEqualToString:@""]) {
+            
+            launguages = @"";
+            
+        } else {
+            
+            launguages = self.fireUser.launguages;
+        }
+        
+        
+        if (![self.fireUser.housing isEqualToString:@""]) {
+            
+            housing = @"";
+            
+        } else {
+            
+            housing = self.fireUser.housing;
+            
+        }
+        
+        
+        if (![self.fireUser.car isEqualToString:@""]) {
+            
+            car = @"";
+            
+        } else {
+            
+            car = self.fireUser.car;
+        }
+        
+        
+        if (![self.fireUser.hobby isEqualToString:@""]) {
+            
+            hobby = @"";
+            
+        } else {
+            
+            hobby = self.fireUser.hobby;
+        }
+        
+        
+        if (![self.fireUser.smoking isEqualToString:@""]) {
+            
+            smoking = @"";
+            
+        } else {
+            
+            smoking = self.fireUser.smoking;
+        }
+        
+        
+        if (![self.fireUser.alcohole isEqualToString:@""]) {
+            
+            alcohole = @"";
+            
+        } else {
+            
+            alcohole = self.fireUser.alcohole;
+            
         }
         
         
@@ -291,22 +407,32 @@
         }
         
         
+        
         NSDictionary *userData = @{@"userID":userID,
                                    @"displayName":name,
                                    @"email":email,
                                    @"photoURL":photoURL,
-                                   @"profession":profession,
-                                   @"company":company,
-                                   @"city":city,
-                                   @"mission":mission,
-                                   @"about":about,
-                                   @"background":background,
-                                   @"interest":interest,};
+                                   @"gender":gender,
+                                   @"age":age,
+                                   @"target":target,
+                                   @"growth":growth,
+                                   @"weight":weight,
+                                   @"figure":figure,
+                                   @"eyes":eyes,
+                                   @"hair":hair,
+                                   @"relations":relations,
+                                   @"childs":childs,
+                                   @"earnings":earnings,
+                                   @"education":education,
+                                   @"launguages":launguages,
+                                   @"housing":housing,
+                                   @"car":car,
+                                   @"hobby":hobby,
+                                   @"smoking":smoking,
+                                   @"alcohole":alcohole};
         
         
-        [[[[self.ref child:@"users"] child:user.uid] child:@"username"] setValue:userData];
-        
-        [TSSaveFriendsFBDatabase saveFriendsDatabase:user userFriend:self.userFriends];
+        [[[[self.ref child:@"users"] child:@"userData"] child:user.uid] setValue:userData];
         
         NSString *token = user.uid;
         

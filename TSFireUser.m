@@ -28,26 +28,51 @@
         FIRDataSnapshot *userName = fireUser.value[@"displayName"];
         FIRDataSnapshot *userEmail = fireUser.value[@"email"];
         FIRDataSnapshot *userPhoto = fireUser.value[@"photoURL"];
-        FIRDataSnapshot *userProfession = fireUser.value[@"profession"];
-        FIRDataSnapshot *userCompany = fireUser.value[@"company"];
-        FIRDataSnapshot *userCurrentArrea = fireUser.value[@"city"];
-        FIRDataSnapshot *userMission = fireUser.value[@"mission"];
-        FIRDataSnapshot *userAbout = fireUser.value[@"about"];
-        FIRDataSnapshot *userBackground = fireUser.value[@"background"];
-        FIRDataSnapshot *userInterest = fireUser.value[@"interest"];
+        
+        FIRDataSnapshot *userGender = fireUser.value[@"gender"];
+        FIRDataSnapshot *userAge = fireUser.value[@"age"];
+        FIRDataSnapshot *userTarget = fireUser.value[@"target"];
+        FIRDataSnapshot *userGrowth = fireUser.value[@"growth"];
+        FIRDataSnapshot *userWeight = fireUser.value[@"weight"];
+        FIRDataSnapshot *userFigure = fireUser.value[@"figure"];
+        FIRDataSnapshot *userEyes = fireUser.value[@"eyes"];
+        FIRDataSnapshot *userHair = fireUser.value[@"hair"];
+        FIRDataSnapshot *userRelations = fireUser.value[@"relations"];
+        FIRDataSnapshot *userChilds = fireUser.value[@"childs"];
+        FIRDataSnapshot *userEarnings = fireUser.value[@"earnings"];
+        FIRDataSnapshot *userEducation = fireUser.value[@"education"];
+        FIRDataSnapshot *userLaunguages = fireUser.value[@"launguages"];
+        FIRDataSnapshot *userHousing = fireUser.value[@"housing"];
+        FIRDataSnapshot *userCar = fireUser.value[@"car"];
+        FIRDataSnapshot *userHobby = fireUser.value[@"hobby"];
+        FIRDataSnapshot *userSmoking = fireUser.value[@"smoking"];
+        FIRDataSnapshot *userAlcohole = fireUser.value[@"alcohole"];
         
         
         user.uid = (NSString *)userIdent;
         user.displayName = (NSString *)userName;
         user.email = (NSString *)userEmail;
         user.photoURL = (NSString *)userPhoto;
-        user.profession = (NSString *)userProfession;
-        user.company = (NSString *)userCompany;
-        user.currentArrea = (NSString *)userCurrentArrea;
-        user.mission = (NSString *)userMission;
-        user.about = (NSString *)userAbout;
-        user.background = (NSString *)userBackground;
-        user.interest = (NSString *)userInterest;
+        
+        user.gender = (NSString *)userGender;
+        user.age = (NSString *)userAge;
+        user.target = (NSString *)userTarget;
+        user.growth = (NSString *)userGrowth;
+        user.weight = (NSString *)userWeight;
+        user.figure = (NSString *)userFigure;
+        user.eyes = (NSString *)userEyes;
+        user.hair = (NSString *)userHair;
+        user.relations = (NSString *)userRelations;
+        user.childs = (NSString *)userChilds;
+        user.earnings = (NSString *)userEarnings;
+        user.education = (NSString *)userEducation;
+        user.launguages = (NSString *)userLaunguages;
+        user.housing = (NSString *)userHousing;
+        user.car = (NSString *)userCar;
+        user.hobby = (NSString *)userHobby;
+        user.smoking = (NSString *)userSmoking;
+        user.alcohole = (NSString *)userAlcohole;
+        
     }
     
     return user;

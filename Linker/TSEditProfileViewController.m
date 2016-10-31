@@ -41,14 +41,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
+
     self.ref = [[FIRDatabase database] reference];
     self.user = [FIRAuth auth].currentUser;
     
     
     self.updateButton.layer.cornerRadius = 3;
     self.updateButton.layer.masksToBounds = YES;
+    
 }
 
 - (IBAction)actBackPressed:(id)sender
@@ -75,108 +76,108 @@
             
             self.fireUser = [TSFireUser initWithSnapshot:snapshot];
             
-            NSDictionary *userData = nil;
-            
-            
-            NSString *profession = nil;
-            NSString *company = nil;
-            NSString *city = nil;
-            NSString *mission = nil;
-            NSString *about = nil;
-            NSString *background = nil;
-            NSString *interest = nil;
-            
-            
-            
-            if ([self.professionTextFd.text isEqualToString:@""]) {
-                
-                profession = self.fireUser.profession;
-                
-            } else {
-                
-                profession = self.professionTextFd.text;
-            }
+//            NSDictionary *userData = nil;
+//            
+//            
+//            NSString *profession = nil;
+//            NSString *company = nil;
+//            NSString *city = nil;
+//            NSString *mission = nil;
+//            NSString *about = nil;
+//            NSString *background = nil;
+//            NSString *interest = nil;
             
             
             
-            if ([self.coingToTextFd.text isEqualToString:@""]) {
-                
-                company = self.fireUser.company;
-                
-            } else {
-                
-                company = self.coingToTextFd.text;
-            }
-            
-            
-            
-            if ([self.currentArreaTextFd.text isEqualToString:@""]) {
-                
-                city = self.fireUser.currentArrea;
-                
-            } else {
-                
-                city = self.currentArreaTextFd.text;
-            }
-            
-            
-            
-            if ([self.missionTextFd.text isEqualToString:@""]) {
-                
-                mission = self.fireUser.mission;
-                
-            } else {
-                
-                mission = self.missionTextFd.text;
-            }
-            
-            
-            
-            if ([self.aboutTextFd.text isEqualToString:@""]) {
-                
-                about = self.fireUser.about;
-                
-            } else {
-                
-                about = self.aboutTextFd.text;
-            }
-            
-            
-            
-            if ([self.backgroundTextFd.text isEqualToString:@""]) {
-                
-                background = self.fireUser.background;
-                
-            } else {
-                background = self.backgroundTextFd.text;
-            }
-            
-            
-            
-            if ([self.interestTextFd.text isEqualToString:@""]) {
-                
-                interest = self.fireUser.interest;
-                
-            } else {
-                
-                interest = self.interestTextFd.text;
-            }
-            
-            
-            userData = @{@"displayName":self.fireUser.displayName,
-                         @"email":self.fireUser.email,
-                         @"photoURL":self.fireUser.photoURL,
-                         @"userID":self.fireUser.uid,
-                         @"profession":profession,
-                         @"company":company,
-                         @"city":city,
-                         @"mission":mission,
-                         @"about":about,
-                         @"background":background,
-                         @"interest":interest};
-            
-            
-            [[[[self.ref child:@"users"] child:self.user.uid] child:@"username"] setValue:userData];
+//            if ([self.professionTextFd.text isEqualToString:@""]) {
+//                
+//                profession = self.fireUser.profession;
+//                
+//            } else {
+//                
+//                profession = self.professionTextFd.text;
+//            }
+//            
+//            
+//            
+//            if ([self.coingToTextFd.text isEqualToString:@""]) {
+//                
+//                company = self.fireUser.company;
+//                
+//            } else {
+//                
+//                company = self.coingToTextFd.text;
+//            }
+//            
+//            
+//            
+//            if ([self.currentArreaTextFd.text isEqualToString:@""]) {
+//                
+//                city = self.fireUser.currentArrea;
+//                
+//            } else {
+//                
+//                city = self.currentArreaTextFd.text;
+//            }
+//            
+//            
+//            
+//            if ([self.missionTextFd.text isEqualToString:@""]) {
+//                
+//                mission = self.fireUser.mission;
+//                
+//            } else {
+//                
+//                mission = self.missionTextFd.text;
+//            }
+//            
+//            
+//            
+//            if ([self.aboutTextFd.text isEqualToString:@""]) {
+//                
+//                about = self.fireUser.about;
+//                
+//            } else {
+//                
+//                about = self.aboutTextFd.text;
+//            }
+//            
+//            
+//            
+//            if ([self.backgroundTextFd.text isEqualToString:@""]) {
+//                
+//                background = self.fireUser.background;
+//                
+//            } else {
+//                background = self.backgroundTextFd.text;
+//            }
+//            
+//            
+//            
+//            if ([self.interestTextFd.text isEqualToString:@""]) {
+//                
+//                interest = self.fireUser.interest;
+//                
+//            } else {
+//                
+//                interest = self.interestTextFd.text;
+//            }
+//            
+//            
+//            userData = @{@"displayName":self.fireUser.displayName,
+//                         @"email":self.fireUser.email,
+//                         @"photoURL":self.fireUser.photoURL,
+//                         @"userID":self.fireUser.uid,
+//                         @"profession":profession,
+//                         @"company":company,
+//                         @"city":city,
+//                         @"mission":mission,
+//                         @"about":about,
+//                         @"background":background,
+//                         @"interest":interest};
+//            
+//            
+//            [[[[self.ref child:@"users"] child:self.user.uid] child:@"username"] setValue:userData];
             
         }];
         

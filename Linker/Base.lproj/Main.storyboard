@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PGp-QN-KZJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7c0-SB-0Nv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSf-Qf-D9R">
@@ -180,7 +180,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Gak-oR-yV2"/>
@@ -350,7 +350,7 @@
                         <viewControllerLayoutGuide type="bottom" id="CwA-wF-WZf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4ie-xY-dM1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="MTu-Az-Sgt"/>
@@ -383,7 +383,7 @@
                         <inset key="imageInsets" minX="-4" minY="2" maxX="-3" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g1C-AC-52E">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="g1C-AC-52E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -405,7 +405,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PrA-ze-lTQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="goF-dz-cFb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="TKy-W3-bq9"/>
@@ -428,10 +428,10 @@
         <image name="Google Plus" width="50" height="50"/>
         <image name="VKontakte" width="50" height="50"/>
         <image name="arrow_bottom" width="32" height="32"/>
-        <image name="background" width="138" height="245"/>
+        <image name="background" width="207" height="368"/>
         <image name="filter_tab" width="44" height="44"/>
         <image name="logo_tab" width="44" height="44"/>
-        <image name="placeholder_message" width="75" height="75"/>
-        <image name="tabbar" width="106" height="50"/>
+        <image name="placeholder_message" width="112" height="112"/>
+        <image name="tabbar" width="160" height="75"/>
     </resources>
 </document>

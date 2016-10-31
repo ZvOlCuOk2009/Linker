@@ -136,8 +136,7 @@
         NSString *interest = nil;
         
         
-        profession = self.fireUser.profession;
-        company = self.fireUser.company;
+       
         
         if (self.locality) {
             city = [NSString stringWithFormat:@"%@", self.locality];
@@ -145,10 +144,7 @@
             city = [NSString stringWithFormat:@"%@", self.name];
         }
         
-        mission = self.fireUser.mission;
-        about = self.fireUser.about;
-        background = self.fireUser.background;
-        interest = self.fireUser.interest;
+      
         
         
         userData = @{@"displayName":self.fireUser.displayName,

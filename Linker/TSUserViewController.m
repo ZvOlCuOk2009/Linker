@@ -36,7 +36,8 @@
 @property (strong, nonatomic) NSArray *dataSourseEyes;
 @property (strong, nonatomic) NSArray *dataSourseHair;
 @property (strong, nonatomic) NSArray *dataSourseTarget;
-@property (strong, nonatomic) NSArray *tags;
+
+@property (strong, nonatomic) NSMutableArray *pickerViews;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -47,7 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tags = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21"];
+//    self.tags = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21"];
     self.dataSourse = @[@"Познакомлюсь", @"Я ищу", @"В возрасте", @"С какой целью", @"Моя внешность", @"Рост", @"Вес", @"Фигура", @"Глаза", @"Волосы", @"Обо мне", @"Отношения", @"Дети", @"Доход", @"Образование", @"Языки", @"Жилье", @"Автомобиль", @"Хобби", @"Курение", @"Алкоголь"];
     
     self.dataSourseGrowth = [NSMutableArray array];
@@ -56,6 +57,7 @@
     self.dataSourseEyes = [NSMutableArray array];
     self.dataSourseHair = [NSMutableArray array];
     self.dataSourseAge = [NSMutableArray array];
+    self.pickerViews = [NSMutableArray array];
     
     for (int i = 140; i < 220; i++) {
         NSString *row = [NSString stringWithFormat:@"%d", i];
@@ -89,8 +91,6 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    
-    TSTableViewCell *cell = [self.tableView cellForRowAtIndexPath:0];
     
 }
 
@@ -232,16 +232,18 @@
     
     
     if ([cell isKindOfClass:[TSTableViewCell class]]) {
-//        NSInteger tag = [[self.tags objectAtIndex:indexPath.row - 1] integerValue];
         cell.titleLabel.text = [self.dataSourse objectAtIndex:indexPath.row];
         NSInteger tag = indexPath.row;
         cell.pickerView.tag = tag;
+        [self.pickerViews addObject:cell.pickerView];
     }
     
     if (indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 5 || indexPath.row == 11) {
-        cell.pickerView.hidden = YES;
+//        cell.pickerView.hidden = YES;
     }
 
+    NSLog(@"Row %ld", indexPath.row);
+    
     return  cell;
 }
 
@@ -264,15 +266,6 @@
 
 #pragma mark - UIPickerViewDataSource
 
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView
-{
-    if (thePickerView.tag == 3)
-    {
-        return 2;
-    }
-    return 1;
-}
 
 
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component
@@ -313,8 +306,6 @@
             return 0;
             break;
     }
-    
-    
     
 }
 
@@ -365,6 +356,11 @@
 #pragma mark - UIPickerViewDelegate
 
 
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 0;
+}
+
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
 {
@@ -383,7 +379,6 @@
     label.font = [UIFont fontWithName:@"System" size:17];
     label.textAlignment = NSTextAlignmentRight;
     
-    NSLog(@"component %ld", component);
     
     switch (pickerView.tag) {
         case 1:
@@ -424,6 +419,22 @@
     return label;    
 }
 
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    switch(component) {
+        case 0:
+            [self.dataSourseAge objectAtIndex:row];
+            break;
+        case 1:
+            [self.dataSourseAge objectAtIndex:row];
+            break;
+        default:
+            break;
+    }
+    
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

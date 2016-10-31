@@ -36,28 +36,28 @@
         
         NSDictionary *content = nil;
         
-        if (fireUser.mission != nil && fireUser.about != nil &&
-            fireUser.background != nil && fireUser.interest != nil) {
-            
-            NSString *mission = fireUser.mission;
-            NSString *about = fireUser.about;
-            NSString *background = fireUser.background;
-            NSString *interest = fireUser.interest;
-            
-            content = @{@"mission":mission,
-                        @"about":about,
-                        @"background":background,
-                        @"interest":interest};
-        }
+//        if (fireUser.mission != nil && fireUser.about != nil &&
+//            fireUser.background != nil && fireUser.interest != nil) {
+//            
+//            NSString *mission = fireUser.mission;
+//            NSString *about = fireUser.about;
+//            NSString *background = fireUser.background;
+//            NSString *interest = fireUser.interest;
+//            
+//            content = @{@"mission":mission,
+//                        @"about":about,
+//                        @"background":background,
+//                        @"interest":interest};
+//        }
         
         TSProfileView *profileView = [TSProfileView profileView:content];
         profileView.frame = CGRectMake((self.view.frame.size.width - profileView.frame.size.width) / 2, 55, profileView.frame.size.width, profileView.frame.size.height);
         profileView.likeView.hidden = YES;
         
         profileView.nameLabel.text = fireUser.displayName;
-        profileView.professionLabel.text = fireUser.profession;
-        profileView.companyLabel.text = fireUser.company;
-        profileView.currentArreaLabel.text = fireUser.currentArrea;
+//        profileView.professionLabel.text = fireUser.profession;
+//        profileView.companyLabel.text = fireUser.company;
+//        profileView.currentArreaLabel.text = fireUser.currentArrea;
         
         NSURL *url = [NSURL URLWithString:fireUser.photoURL];
         

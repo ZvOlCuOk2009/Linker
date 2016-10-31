@@ -21,6 +21,7 @@
 @interface TSHomeViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @property (weak, nonatomic) IBOutlet UIButton *outButton;
 @property (weak, nonatomic) IBOutlet UIButton *meLocationButton;
@@ -35,20 +36,25 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *country;
 
+@property (weak, nonatomic) IBOutlet UITextView *nameTextView;
+
+@property (strong, nonatomic) UIImage *clickImage;
+@property (strong, nonatomic) UIImage *noClickImage;
+
 @end
 
 @implementation TSHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     
     self.ref = [[FIRDatabase database] reference];
     
     self.inviteButton.layer.masksToBounds = YES;
     
-    [self addAvatar];
-    
+//    [self addAvatar];
+   
     UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]
                                                                 initWithTarget:self action:@selector(handleLongPress:)];
     longPressGestureRecognizer.minimumPressDuration = 2.0;
@@ -69,7 +75,23 @@
         }
     }
     
+    self.datePicker = [[UIDatePicker alloc] init];
+
+   
+    
+    
 }
+
+
+
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+   
+   [super viewDidDisappear:animated];
+   
+}
+
 
 
 - (void)addAvatar
@@ -112,15 +134,18 @@
 
 - (IBAction)actionInviteFriends:(id)sender
 {
+   
     [[TSFBManager sharedManager] inviteUserFriendsTheServerFacebook:self];
+   
 }
 
 
 - (IBAction)backButton:(id)sender
 {
+   
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    [self saveDataToDataBase];
+   
+//    [self saveDataToDataBase];
 }
 
 
@@ -150,7 +175,12 @@
     [alertController addAction:actionNo];
     
     [self presentViewController:alertController animated:YES completion:nil];
+    
 }
+
+
+
+
 
 
 
@@ -173,56 +203,56 @@
 
 
 
-- (void)saveDataToDataBase
-{
-    [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        
-        self.fireUser = [TSFireUser initWithSnapshot:snapshot];
-        
-        NSDictionary *userData = nil;
-        
-        
-        NSString *profession = nil;
-        NSString *company = nil;
-        NSString *city = nil;
-        NSString *mission = nil;
-        NSString *about = nil;
-        NSString *background = nil;
-        NSString *interest = nil;
-        
-        
-        profession = self.fireUser.profession;
-        company = self.fireUser.company;
-        
-        if (self.locality) {
-            city = [NSString stringWithFormat:@"%@", self.locality];
-        } else {
-            city = [NSString stringWithFormat:@"%@", self.name];
-        }
-        
-        mission = self.fireUser.mission;
-        about = self.fireUser.about;
-        background = self.fireUser.background;
-        interest = self.fireUser.interest;
-        
-        
-        userData = @{@"displayName":self.fireUser.displayName,
-                     @"email":self.fireUser.email,
-                     @"photoURL":self.fireUser.photoURL,
-                     @"userID":self.fireUser.uid,
-                     @"profession":profession,
-                     @"company":company,
-                     @"city":city,
-                     @"mission":mission,
-                     @"about":about,
-                     @"background":background,
-                     @"interest":interest};
-        
-        
-        [[[[self.ref child:@"users"] child:self.user.uid] child:@"username"] setValue:userData];
-        
-    }];
-}
+//- (void)saveDataToDataBase
+//{
+//    [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+//        
+//        self.fireUser = [TSFireUser initWithSnapshot:snapshot];
+//        
+//        NSDictionary *userData = nil;
+//        
+//        
+//        NSString *profession = nil;
+//        NSString *company = nil;
+//        NSString *city = nil;
+//        NSString *mission = nil;
+//        NSString *about = nil;
+//        NSString *background = nil;
+//        NSString *interest = nil;
+//        
+//        
+//        profession = self.fireUser.profession;
+//        company = self.fireUser.company;
+//        
+//        if (self.locality) {
+//            city = [NSString stringWithFormat:@"%@", self.locality];
+//        } else {
+//            city = [NSString stringWithFormat:@"%@", self.name];
+//        }
+//        
+//        mission = self.fireUser.mission;
+//        about = self.fireUser.about;
+//        background = self.fireUser.background;
+//        interest = self.fireUser.interest;
+//        
+//        
+//        userData = @{@"displayName":self.fireUser.displayName,
+//                     @"email":self.fireUser.email,
+//                     @"photoURL":self.fireUser.photoURL,
+//                     @"userID":self.fireUser.uid,
+//                     @"profession":profession,
+//                     @"company":company,
+//                     @"city":city,
+//                     @"mission":mission,
+//                     @"about":about,
+//                     @"background":background,
+//                     @"interest":interest};
+//        
+//        
+//        [[[[self.ref child:@"users"] child:self.user.uid] child:@"username"] setValue:userData];
+//        
+//    }];
+//}
 
 
 #pragma mark - MapKit
@@ -277,17 +307,9 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

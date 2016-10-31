@@ -62,6 +62,7 @@
 		FDEE778C1D89FA6C000FF69A /* libFBSDKShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEE77891D89FA6C000FF69A /* libFBSDKShareKit.a */; };
 		FDF073BE1DA45301000464BD /* TSSettingScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF073BD1DA45301000464BD /* TSSettingScrollViewController.m */; };
 		FDF1F4421DA27B4100D7009F /* TSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF1F4411DA27B4100D7009F /* TSSettingViewController.m */; };
+		FDF789A11DC2A2A700B5FAE9 /* TSUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF789A01DC2A2A700B5FAE9 /* TSUserTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +103,7 @@
 		FD6C0A6F1D9C717D00F56645 /* TSSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSearch.h; sourceTree = "<group>"; };
 		FD6C0A701D9C717D00F56645 /* TSSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSearch.m; sourceTree = "<group>"; };
 		FD72A20E1D8C752C00D0BE2F /* TSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSHomeViewController.h; sourceTree = "<group>"; };
-		FD72A20F1D8C752C00D0BE2F /* TSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSHomeViewController.m; sourceTree = "<group>"; };
+		FD72A20F1D8C752C00D0BE2F /* TSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 3; lastKnownFileType = sourcecode.c.objc; path = TSHomeViewController.m; sourceTree = "<group>"; };
 		FD72A2111D8C7F0000D0BE2F /* TSMapKitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMapKitViewController.h; sourceTree = "<group>"; };
 		FD72A2121D8C7F0000D0BE2F /* TSMapKitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMapKitViewController.m; sourceTree = "<group>"; };
 		FD72A2141D8C7F4800D0BE2F /* MapKitStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapKitStoryboard.storyboard; sourceTree = "<group>"; };
@@ -179,6 +180,8 @@
 		FDF073BD1DA45301000464BD /* TSSettingScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingScrollViewController.m; sourceTree = "<group>"; };
 		FDF1F4401DA27B4100D7009F /* TSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSettingViewController.h; sourceTree = "<group>"; };
 		FDF1F4411DA27B4100D7009F /* TSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSettingViewController.m; sourceTree = "<group>"; };
+		FDF7899F1DC2A2A700B5FAE9 /* TSUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSUserTableViewController.h; sourceTree = "<group>"; };
+		FDF789A01DC2A2A700B5FAE9 /* TSUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSUserTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +345,8 @@
 				FD90BDC41D8C1BFC0070A62D /* TSTabBarController.m */,
 				FDBBAB151D8AED3300625A50 /* TSUserViewController.h */,
 				FDBBAB161D8AED3300625A50 /* TSUserViewController.m */,
+				FDF7899F1DC2A2A700B5FAE9 /* TSUserTableViewController.h */,
+				FDF789A01DC2A2A700B5FAE9 /* TSUserTableViewController.m */,
 				FD90BDC81D8C1FAD0070A62D /* TSMatchViewController.h */,
 				FD90BDC91D8C1FAD0070A62D /* TSMatchViewController.m */,
 				FD90BDD01D8C299B0070A62D /* TSContainerMatchViewController.h */,
@@ -707,6 +712,7 @@
 				FD29FD051D8D528800665A85 /* TSTableViewCell.m in Sources */,
 				FDEE77501D89E0DF000FF69A /* main.m in Sources */,
 				FD28614B1DC0DB21002CC586 /* TSTableViewCellHeader.m in Sources */,
+				FDF789A11DC2A2A700B5FAE9 /* TSUserTableViewController.m in Sources */,
 				FD90BDCA1D8C1FAD0070A62D /* TSMatchViewController.m in Sources */,
 				FD90BDC51D8C1BFC0070A62D /* TSTabBarController.m in Sources */,
 				FD90BDBF1D8C05FB0070A62D /* TSParsingManager.m in Sources */,
